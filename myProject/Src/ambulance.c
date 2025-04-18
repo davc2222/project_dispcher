@@ -96,10 +96,10 @@ void Task_ambulance(void *pvParameters)
                     snprintf(call_msg_desc, sizeof(call_msg_desc), " >> %s  handle call  %d\n", car_name, msg_ambulance.call_id);
                     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> %s  handle call  %d\n", car_name, msg_ambulance.call_id);
                     get_time(log_msg.log_time_stamp);
-                    // if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
-                    // {
-                    //     my_assert(false, "failed to send call to log queue\n");
-                    // }
+                    if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
+                    {
+                        my_assert(false, "failed to send call to log queue\n");
+                    }
                     int handl_time = getRandomNumber(MIN_AMBULANCE_CALL_HNDL_TIME, MAX_AMBULANCE_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
                     xTimerChangePeriod(xAmbulanceTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0);               // set new time for call
                     xTimerStart(xAmbulanceTimers[available_car - 1], 0);
@@ -206,31 +206,26 @@ const char *get_ambulance_car_name(uint8_t car_num)
 void init_ambulace_timers(void)
 {
 
-    for (int i = 0; i < AMBULANCE_CAR_NUM; i++)
-    {
-        char *timerName = (char *)pvPortMalloc(11); // malloc
-        if (timerName == NULL)
-        {
-            printf("Error: Failed to allocate memory for timer name\n");
-            return;
-        }
-        // Define unique names for each timer
-        snprintf(timerName, 11, "ambulance%d", i + 1); // Generate unique name
-     
-        xAmbulanceTimers[i] = xTimerCreate(timerName,
-                                           pdMS_TO_TICKS(100),
-                                           pdFALSE,
-                                           (void *)timerName,                // Store string name as Timer ID
-                                           vAmbulanceTimerCallBackFunction); // Common callback function
+     // Static array to store the timer names 
+     static char timerName[AMBULANCE_CAR_NUM][11];  // Array to hold timer names ("corona1", "corona2", ..., up to "corona10")
 
-        
-        if (xAmbulanceTimers[i] == NULL)
-        {
-
-            printf("Error: Failed to create ambulance timer %d\n", i);
-            vPortFree(timerName); // Free allocated memory if timer creation fails
-        }
-    }
+     for (int i = 0; i < AMBULANCE_CAR_NUM; i++)
+     {
+         // Generate a unique timer name for each timer
+         snprintf(timerName[i], sizeof(timerName[i]), "ambulance%d", i + 1);
+ 
+         // Create the timer with the generated name
+         xAmbulanceTimers[i] = xTimerCreate(timerName[i],
+                                         pdMS_TO_TICKS(100),  // Timer period in milliseconds
+                                         pdFALSE,             // Auto-reload set to false
+                                         (void *)timerName[i],  // Store the timer name as Timer ID
+                                         vAmbulanceTimerCallBackFunction); // Callback function when timer expires
+ 
+         if ( xAmbulanceTimers[i] == NULL)
+         {
+             printf("Error: Failed to create corona timer %d\n", i);
+         }
+     }
 }
 
 void vAmbulanceTimerCallBackFunction(TimerHandle_t xTimer)
@@ -244,10 +239,10 @@ void vAmbulanceTimerCallBackFunction(TimerHandle_t xTimer)
     printf("Ambulance Car %d has finished call handelling\n", carNum);
     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> Ambulance Car %d has finished call handelling\n", carNum);
     get_time(log_msg.log_time_stamp);
-    // if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
-    // {
-    //     my_assert(false, "failed to send call to log queue\n");
-    // }
+    if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
+    {
+        my_assert(false, "failed to send call to log queue\n");
+    }
     set_reset_ambulance_car_busy(&busy_ambulance_cars, carNum, false);
     // Stop timer at the end (applies to all cases)
     xTimerStop(xTimer, 0);

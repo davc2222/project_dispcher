@@ -61,8 +61,7 @@ void Task_dispcher(void *pvParameters)
             if (xQueuePeek(xQueue_dispcher, &call_msg, 100) == pdPASS)
             {
                 call_type = call_msg.call_type;
-               
-                // selected_queue = xQueue_police;
+             
 
                 printf("dspch call id %d+ call type %d\n " , call_msg.call_id  , call_msg.call_type);
                 switch (call_type)

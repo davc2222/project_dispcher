@@ -14,7 +14,7 @@
 #include "corona.h"
 #include "log.h"
 
-/*declare timers for corona */ 
+/*declare timers for corona */
 TimerHandle_t xCoronaTimers[CORONA_CAR_NUM];
 /*  declare call back function to corona timere*/
 void vCoronaTimerCallBackFunction(TimerHandle_t xTimer);
@@ -22,8 +22,10 @@ void vCoronaTimerCallBackFunction(TimerHandle_t xTimer);
 QueueHandle_t xQueue_corona;
 /* struct contain cars status*/
 busy_corona_cars_t busy_corona_cars;
+// struct to hold the data structures for each timer
+ static TimerDataCorona coronaTimerData[CORONA_CAR_NUM];
 /*  global mutex */
-extern SemaphoreHandle_t xMutex; 
+extern SemaphoreHandle_t xMutex;
 /* log queue*/
 extern QueueHandle_t xQueue_log;
 
@@ -52,7 +54,7 @@ void init_corona_department(void)
         my_assert(false, "failed to create corona queue");
     }
 
-      init_corona_timers();
+    init_corona_timers();
 }
 /**
  * @brief corona task . handle all corona cars
@@ -66,8 +68,8 @@ void init_corona_department(void)
 void Task_corona(void *pvParameters)
 {
     log_msg_call_t log_msg; // struct fo log file
-    call_msg_t msg_corona; // struct to read and write queue
- 
+    call_msg_t msg_corona;  // struct to read and write queue
+
     for (;;)
     {
         if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
@@ -76,7 +78,7 @@ void Task_corona(void *pvParameters)
 
             switch (available_car)
             {
-               /*  no car ava , get out  and give mutex */
+                /*  no car ava , get out  and give mutex */
             case NO_CAR_AVAILABLE:
                 break;
 
@@ -96,17 +98,18 @@ void Task_corona(void *pvParameters)
                     {
                         my_assert(false, "failed to send call to log queue\n");
                     }
-                    
+                    coronaTimerData[available_car - 1].call_id = msg_corona.call_id;
+                   // xTimerReset(xCoronaTimers[available_car - 1], 0);  // Reset the timer to start again with new data
                     int handl_time = getRandomNumber(MIN_CORONA_CALL_HNDL_TIME, MAX_CORONA_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
-                    printf("corona ava car = %d\n" ,available_car);
-                    xTimerChangePeriod(xCoronaTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0);            // set new time for call
+                    printf("corona ava car = %d\n", available_car);
+                    xTimerChangePeriod(xCoronaTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0); // set new time for call
                     xTimerStart(xCoronaTimers[available_car - 1], 0);
                     RST_TXT_CLR;
                     break;
                 }
                 else
                 {
-                     printf("There are no calls for corona\n"); // debug only
+                    printf("There are no calls for corona\n"); // debug only
                     break;
                 }
             }
@@ -117,30 +120,32 @@ void Task_corona(void *pvParameters)
         else
         {
 
-          
-         printf("failed to get mutex for Task_corona\n"); // debug only
+            printf("failed to get mutex for Task_corona\n"); // debug only
         }
 
         // delay
         vTaskDelay(pdMS_TO_TICKS(1000));
-   
     }
 }
 
-/** 
-* @brief check if there is corona free car 
-* 
-* @param[in] pointer for the struct
-* @return  number that represent the free car
-* if non of the cars are free return "NO_CAR_AVAILABLE"
-*/
+/**
+ * @brief check if there is corona free car
+ *
+ * @param[in] pointer for the struct
+ * @return  number that represent the free car
+ * if non of the cars are free return "NO_CAR_AVAILABLE"
+ */
 uint8_t check_corona_cars_busy(busy_corona_cars_t *cars)
 {
-    if (cars->corona_1 == AVAILABLE)  return 1; 
-    if (cars->corona_2 == AVAILABLE)  return 2;
-    if (cars->corona_3 == AVAILABLE)  return 3;   
-    if (cars->corona_4 == AVAILABLE)  return 4;
-    /* no free cars*/ 
+    if (cars->corona_1 == AVAILABLE)
+        return 1;
+    if (cars->corona_2 == AVAILABLE)
+        return 2;
+    if (cars->corona_3 == AVAILABLE)
+        return 3;
+    if (cars->corona_4 == AVAILABLE)
+        return 4;
+    /* no free cars*/
     return NO_CAR_AVAILABLE;
 }
 
@@ -148,11 +153,18 @@ void set_reset_corona_car_busy(busy_corona_cars_t *cars, uint8_t car_num, bool s
 {
     switch (car_num)
     {
-    case 1: cars->corona_1 = state; break;    
-    case 2: cars->corona_2 = state; break;
-    case 3:  cars->corona_3 = state;break;
-    case 4:  cars->corona_4 = state; break;
-       
+    case 1:
+        cars->corona_1 = state;
+        break;
+    case 2:
+        cars->corona_2 = state;
+        break;
+    case 3:
+        cars->corona_3 = state;
+        break;
+    case 4:
+        cars->corona_4 = state;
+        break;
     }
 }
 
@@ -173,28 +185,26 @@ const char *get_corona_car_name(uint8_t car_num)
 
 void init_corona_timers(void)
 {
+    // Static array to store the timer names
+    static char timerName[CORONA_CAR_NUM][11]; // Array to hold timer names ("corona1", "corona2", ..., up to "corona10")
 
     for (int i = 0; i < CORONA_CAR_NUM; i++)
     {
-        char *timerName = (char *)pvPortMalloc(11); // malloc
-        if (timerName == NULL)
-        {
-            printf("Error: Failed to allocate memory for timer name\n");
-            return;
-        }
-        // Define unique names for each timer
-        snprintf(timerName, 11, "corona%d", i + 1); // Generate unique name
-        xCoronaTimers[i] = xTimerCreate(timerName,
-                                        pdMS_TO_TICKS(100),
-                                        pdFALSE,
-                                        (void *)timerName,             // Store string name as Timer ID
-                                        vCoronaTimerCallBackFunction); // Common callback function
+        // Generate a unique timer name for each timer
+        snprintf(timerName[i], sizeof(timerName[i]), "corona%d", i + 1);
+
+        coronaTimerData[i].timerId = timerName[i]; // <-- Assign pointer to string
+        coronaTimerData[i].call_id = 0; // set call id to 0
+          // Create the timer with the generated name
+        xCoronaTimers[i] = xTimerCreate(timerName[i],
+                                        pdMS_TO_TICKS(100),            // Timer period in milliseconds
+                                        pdFALSE,                       // Auto-reload set to false
+                                        (void *)&coronaTimerData[i],   // Store the timer data
+                                        vCoronaTimerCallBackFunction); // Callback function when timer expires
 
         if (xCoronaTimers[i] == NULL)
         {
-
             printf("Error: Failed to create corona timer %d\n", i);
-            vPortFree(timerName); // Free allocated memory if timer creation fails
         }
     }
 }
@@ -203,19 +213,33 @@ void vCoronaTimerCallBackFunction(TimerHandle_t xTimer)
 {
     log_msg_call_t log_msg;
     // get the timer name(ID)
-    const char *timerName = (const char *)pvTimerGetTimerID(xTimer);
+    //  const char *timerName = (const char *)pvTimerGetTimerID(xTimer);
+    // Retrieve the TimerDataCorona structure from the Timer 
+    TimerDataCorona *data = (TimerDataCorona *)pvTimerGetTimerID(xTimer);
+    char *timerName = "";
+    int call_id = 0;
+    if (data != NULL)
+    {
+        timerName = data->timerId;
+        call_id = data->call_id;
+    }
+    else
+    {
+        printf("Error: Timer data is invalid\n");
+    }
+
     // get the car number
     uint8_t carNum = getTimerCoronaCarNum(timerName);
     PRPL_TXT_CLR;
-    printf("Corona Car %d has finished call handelling\n", carNum);
-    snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> Corona Car %d has finished call handelling\n", carNum);
+    printf("Corona Car %d has finished call number  %d handelling\n", carNum, call_id);
+    snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> Corona Car %d has finished call  %d handelling\n", carNum, call_id);
     get_time(log_msg.log_time_stamp);
     // if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
     // {
     //     my_assert(false, "failed to send call to log queue\n");
     // }
     set_reset_corona_car_busy(&busy_corona_cars, carNum, false);
-  RST_TXT_CLR;
+    RST_TXT_CLR;
     xTimerStop(xTimer, 0);
 }
 
