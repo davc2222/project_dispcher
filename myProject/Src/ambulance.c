@@ -14,12 +14,15 @@
 #include "main_dispacher_project.h"
 #include "log.h"
 
-// create timers for cars
+// array to store timers
 TimerHandle_t xAmbulanceTimers[AMBULANCE_CAR_NUM];
+// struct to hold the data structures for each timer
+  TimerDataAmbulance_t ambulanceTimerData[AMBULANCE_CAR_NUM];
 // call back function fot the timers
 void vAmbulanceTimerCallBackFunction(TimerHandle_t xTimer);
 // ambulance queue handler
 QueueHandle_t xQueue_ambulance;
+// cars status
 busy_ambulance_cars_t busy_ambulance_cars;
 // global mutex
 extern SemaphoreHandle_t xMutex;
@@ -50,16 +53,19 @@ void init_ambulance_department(void)
 
         my_assert(false, "failed to create ambulance queue");
     }
-
-   init_ambulace_timers();
+     // init timers
+    init_ambulace_timers();
 }
 
 /**
  * @brief ambulance task . handle all ambulance cars
  *
- * This function check if there is  ambulance car ava then check for
- * calls and if there is assign it to the free car and set it busy
- * init timer for  random handle time
+ * This function check if there is  call to ambulance
+ * then check if there is ava car , if yes it assign car
+ * start timer for the call interval
+ * and remove the call from the queue
+ * if no car ava the call stay in the queue waiting for next try
+ * from the task
  * @param[in] void
  * @return void
  */
@@ -68,20 +74,20 @@ void Task_ambulance(void *pvParameters)
     log_msg_call_t log_msg;
     call_msg_t msg_ambulance;
     static char call_msg_desc[100] = {0};
+    static char car_name[15];  
     for (;;)
     {
 
         if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
         {
-         //   printf("Task ambulance  is using the shared resource\n"); // debug only
+             // check for ava free car
             uint8_t available_car = check_ambulance_cars_busy(&busy_ambulance_cars);
 
             switch (available_car)
             {
-
+               // there is no car free  , get out
             case NO_CAR_AVAILABLE:
-
-                //   printf("all ambulance cars occupied\n");
+                //   printf("all ambulance cars occupied\n");//debug
                 break;
 
             case CAR_1:
@@ -89,8 +95,9 @@ void Task_ambulance(void *pvParameters)
             case CAR_3:
                 if (xQueueReceive(xQueue_ambulance, &msg_ambulance, TASKS_RCVQUE_DELAY) == pdPASS)
                 {
-                    const char *car_name = get_ambulance_car_name(available_car);
-                    set_reset_ambulance_car_busy(&busy_ambulance_cars, available_car, true);
+                    
+                    snprintf(car_name, sizeof(car_name), "Ambulance %d", available_car);
+                    set_reset_ambulance_car_busy(&busy_ambulance_cars, available_car, CAR_BUSY);
                     YLW_TXT_CLR;
                     printf("%s  handle call- %d\n", car_name, msg_ambulance.call_id);
                     snprintf(call_msg_desc, sizeof(call_msg_desc), " >> %s  handle call  %d\n", car_name, msg_ambulance.call_id);
@@ -100,6 +107,7 @@ void Task_ambulance(void *pvParameters)
                     {
                         my_assert(false, "failed to send call to log queue\n");
                     }
+                    ambulanceTimerData[available_car - 1].call_id = msg_ambulance.call_id;
                     int handl_time = getRandomNumber(MIN_AMBULANCE_CALL_HNDL_TIME, MAX_AMBULANCE_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
                     xTimerChangePeriod(xAmbulanceTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0);               // set new time for call
                     xTimerStart(xAmbulanceTimers[available_car - 1], 0);
@@ -117,10 +125,8 @@ void Task_ambulance(void *pvParameters)
             xSemaphoreGive(xMutex);
         }
         else
-        {
-
-            RST_TXT_CLR;
-            // printf("failed to get mutex for Task_ambulance\n"); // debug only
+        {       
+           // printf("failed to get mutex for Task_ambulance\n"); // debug only
         }
 
         // delay
@@ -139,123 +145,119 @@ void Task_ambulance(void *pvParameters)
 uint8_t check_ambulance_cars_busy(busy_ambulance_cars_t *cars)
 {
 
-    if (cars->ambulance_1 == AVAILABLE) return 1;  
-    if (cars->ambulance_2 == AVAILABLE) return 2;  
-    if (cars->ambulance_3 == AVAILABLE) return 3;
-       
-     /* no free cars*/ 
-       return NO_CAR_AVAILABLE;
-}
+    if (cars->ambulance_1 == AVAILABLE)
+        return 1;
+    if (cars->ambulance_2 == AVAILABLE)
+        return 2;
+    if (cars->ambulance_3 == AVAILABLE)
+        return 3;
 
+    /* no free cars*/
+    return NO_CAR_AVAILABLE;
+}
 
 /**
  * @brief set or reset car status
  *
  * @param[in] pointer for the busy  struct, car number , state
  * @return  void
-  */
+ */
+
 void set_reset_ambulance_car_busy(busy_ambulance_cars_t *cars, uint8_t car_num, bool state)
 {
     switch (car_num)
     {
     case 1:
-        cars->ambulance_1 = state; break; 
+        cars->ambulance_1 = state;
+        break;
     case 2:
-        cars->ambulance_2 = state; break;
+        cars->ambulance_2 = state;
+        break;
     case 3:
-        cars->ambulance_3 = state; break;    
+        cars->ambulance_3 = state;
+        break;
     }
 }
+
 
 /**
- * @brief return car name string
+ * @brief init the cars timer
  *
- * @param[in] car number
- * @return  pointer to car name string
-  */
-// const char *get_ambulance_cars_name(uint8_t car_num)
-// {
-//     static const char *ambulance_names[] = {
-//         "Ambulance 1",
-//         "Ambulance 2",
-//         "Ambulance 3"
-//     };
-
-//     if (car_num < AMBULANCE_CAR_NUM)
-//         return ambulance_names[car_num - 1];
-//     else
-//         return "Unknown Ambulance";
-// }
-
-
-const char *get_ambulance_car_name(uint8_t car_num)
-{
-    switch (car_num)
-    {
-    case 1:
-        return "Ambulance 1";
-    case 2:
-        return "Ambulance  2";
-    case 3:
-        return "Ambulance 3";
-   
-    }
-}
-// init ambulace timers
-
+ * This function create timer to each car 
+ * and associated with that car number
+ * the timer data struct hold the call id
+ * and hold the car num.
+ 
+ * @param[in] void
+ * @return void
+ */
 void init_ambulace_timers(void)
 {
 
-     // Static array to store the timer names 
-     static char timerName[AMBULANCE_CAR_NUM][11];  // Array to hold timer names ("corona1", "corona2", ..., up to "corona10")
+    // Static array to store the timer names
+    static char timerName[AMBULANCE_CAR_NUM][11]; // Array to hold timer names 
 
-     for (int i = 0; i < AMBULANCE_CAR_NUM; i++)
-     {
-         // Generate a unique timer name for each timer
-         snprintf(timerName[i], sizeof(timerName[i]), "ambulance%d", i + 1);
- 
-         // Create the timer with the generated name
-         xAmbulanceTimers[i] = xTimerCreate(timerName[i],
-                                         pdMS_TO_TICKS(100),  // Timer period in milliseconds
-                                         pdFALSE,             // Auto-reload set to false
-                                         (void *)timerName[i],  // Store the timer name as Timer ID
-                                         vAmbulanceTimerCallBackFunction); // Callback function when timer expires
- 
-         if ( xAmbulanceTimers[i] == NULL)
-         {
-             printf("Error: Failed to create corona timer %d\n", i);
-         }
-     }
+    for (int i = 0; i < AMBULANCE_CAR_NUM; i++)
+    {
+        // Generate a unique timer name for each timer
+        snprintf(timerName[i], sizeof(timerName[i]), "ambulance%d", i + 1);
+      
+        ambulanceTimerData[i].call_id = 0; // set call id to 
+       ambulanceTimerData[i].car_num = i + 1;  
+        // Create the timer with the generated name
+        xAmbulanceTimers[i] = xTimerCreate(timerName[i],
+                                           pdMS_TO_TICKS(100),               // Timer period in milliseconds
+                                           pdFALSE,                          // Auto-reload set to false
+                                           (void *)&ambulanceTimerData[i],   // Store the timer name as Timer ID
+                                           vAmbulanceTimerCallBackFunction); // Callback function when timer expires
+
+        if (xAmbulanceTimers[i] == NULL)
+        {
+            printf("Error: Failed to create corona timer %d\n", i);
+        }
+    }
 }
-
+/**
+ * @brief ambulance timers call back function
+ *
+ * this function handle all amnulance timers call back
+ * it retrive the data from timer structure
+ *and print it to terminal indiacting that car  has
+ * finished andle call
+ * and althugh send the details to log queue
+ * stop the timer
+ 
+ * @param[in] timer object
+ * @return void
+ */
 void vAmbulanceTimerCallBackFunction(TimerHandle_t xTimer)
 {
     log_msg_call_t log_msg;
-    // get the timer name(ID)
-    const char *timerName = (const char *)pvTimerGetTimerID(xTimer);
-    // get the car number
-    uint8_t carNum = getTimerAmbulanceCarNum(timerName);
+    // Retrieve the TimerDataCorona structure from the Timer
+    TimerDataAmbulance_t *data = (TimerDataAmbulance_t *)pvTimerGetTimerID(xTimer);
+    uint8_t carNum = 0;
+    int call_id = 0;
+    if (data != NULL)
+    { 
+        call_id = data->call_id;
+        carNum = data->car_num;
+    }
+    else
+    {
+        printf("Error: Timer data is invalid\n");
+    }
+   
     YLW_TXT_CLR;
-    printf("Ambulance Car %d has finished call handelling\n", carNum);
-    snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> Ambulance Car %d has finished call handelling\n", carNum);
+    printf("Ambulance Car %d has finished handelling call number  %d \n", carNum, call_id);
+    snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> Ambulance Car %d has finished handelling call number  %d \n", carNum, call_id);
     get_time(log_msg.log_time_stamp);
     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
     {
         my_assert(false, "failed to send call to log queue\n");
     }
-    set_reset_ambulance_car_busy(&busy_ambulance_cars, carNum, false);
+    set_reset_ambulance_car_busy(&busy_ambulance_cars, carNum, CAR_AVA);
     // Stop timer at the end (applies to all cases)
     xTimerStop(xTimer, 0);
     RST_TXT_CLR;
-}
+} 
 
-uint8_t getTimerAmbulanceCarNum(const char *timerName)
-{
-
-    if (strcmp(timerName, "ambulance1") == 0)
-        return AMBULANCE_1_TIMER;
-    if (strcmp(timerName, "ambulance2") == 0)
-        return AMBULANCE_2_TIMER;
-    if (strcmp(timerName, "ambulance3") == 0)
-        return AMBULANCE_3_TIMER;
-}

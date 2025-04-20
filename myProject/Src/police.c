@@ -19,7 +19,9 @@ TimerHandle_t xPoliceTimers[POLICE_CAR_NUM];
 void vPoliceTimerCallBackFunction(TimerHandle_t xTimer);
 QueueHandle_t xQueue_police;
 busy_police_cars_t busy_police_cars;
-// Declare a global mutex
+// struct to hold the data structures for each timer
+TimerDataPolice_t policeTimerData[POLICE_CAR_NUM];
+//  global mutex
 extern SemaphoreHandle_t xMutex;
 extern QueueHandle_t xQueue_log;
 
@@ -71,8 +73,10 @@ void Task_police(void *pvParameters)
             case CAR_3:
                 if (xQueueReceive(xQueue_police, &msg_police, TASKS_RCVQUE_DELAY) == pdPASS)
                 {
-                    const char *car_name = get_police_car_name(available_car);
-                    set_reset_police_car_busy(&busy_police_cars, available_car, true);
+                   
+                    char car_name[15];
+                    snprintf(car_name, sizeof(car_name), "Police %d", available_car);
+                    set_reset_police_car_busy(&busy_police_cars, available_car, CAR_BUSY);
                     BLUE_TXT_CLR;
                     printf("%s  handle call  %d\n", car_name, msg_police.call_id);
                     snprintf(call_msg_desc, sizeof(call_msg_desc), " >> %s  handle call  %d\n", car_name, msg_police.call_id);
@@ -82,7 +86,8 @@ void Task_police(void *pvParameters)
                     {
                         my_assert(false, "failed to send call to log queue\n");
                      }
-                     int handl_time = getRandomNumber(MIN_POLICE_CALL_HNDL_TIME, MAX_POLICE_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
+                    policeTimerData[available_car - 1].call_id = msg_police.call_id;
+                    int handl_time = getRandomNumber(MIN_POLICE_CALL_HNDL_TIME, MAX_POLICE_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
                     xTimerChangePeriod(xPoliceTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0);                  // set new time for call
                     xTimerStart(xPoliceTimers[available_car - 1], 0);
                     RST_TXT_CLR;
@@ -142,45 +147,34 @@ void set_reset_police_car_busy(busy_police_cars_t *cars, uint8_t car_num, bool s
     }
 }
 
-const char *get_police_car_name(uint8_t car_num)
-{
-    switch (car_num)
-    {
-    case 1:
-        return "Police 1";
-    case 2:
-        return "Police 2";
-    case 3:
-        return "Police 3";
-    }
-}
+
 
 // init police timers
 
 void init_police_timers(void)
 {
 
+    // Static array to store the timer names
+    static char timerName[POLICE_CAR_NUM][11]; // Array to hold timer names 
+
     for (int i = 0; i < POLICE_CAR_NUM; i++)
     {
-        char *timerName = (char *)pvPortMalloc(10); // malloc
-        if (timerName == NULL)
-        {
-            printf("Error: Failed to allocate memory for timer name\n");
-            return;
-        }
-        // Define unique names for each timer
-        snprintf(timerName, 10, "police%d", i + 1); // Generate unique name
-        xPoliceTimers[i] = xTimerCreate(timerName,
-                                        pdMS_TO_TICKS(100),
-                                        pdFALSE,
-                                        (void *)timerName,             // Store string name as Timer ID
-                                        vPoliceTimerCallBackFunction); // Common callback function
+        // Generate a unique timer name for each timer
+        snprintf(timerName[i], sizeof(timerName[i]), "police%d", i + 1);
 
-        if (xPoliceTimers[i] == NULL)
-        {
+        policeTimerData[i].timerId = timerName[i]; // 
+        policeTimerData[i].call_id = 0; // set call id to 0
+       policeTimerData[i].car_num = i + 1;  
+          // Create the timer with the generated name
+        xPoliceTimers[i] = xTimerCreate(timerName[i],
+                                        pdMS_TO_TICKS(100),            // Timer period in milliseconds
+                                        pdFALSE,                       // Auto-reload set to false
+                                        (void *)&policeTimerData[i],   // Store the timer data
+                                        vPoliceTimerCallBackFunction); // Callback function when timer expires
 
-            printf("Error: Failed to create police  timer %d\n", i);
-            vPortFree(timerName); // Free allocated memory if timer creation fails
+        if ( xPoliceTimers[i] == NULL)
+        {
+            printf("Error: Failed to create corona timer %d\n", i);
         }
     }
 }
@@ -188,30 +182,32 @@ void init_police_timers(void)
 void vPoliceTimerCallBackFunction(TimerHandle_t xTimer)
 {
     log_msg_call_t log_msg;
-    // get the timer name(ID)
-    const char *timerName = (const char *)pvTimerGetTimerID(xTimer);
-    //get the car number
-    uint8_t carNum = getTimerPoliceCarNum(timerName);
+    // Retrieve the TimerDataCorona structure from the Timer 
+    TimerDataPolice_t *data = (TimerDataPolice_t*)pvTimerGetTimerID(xTimer);
+    uint8_t carNum = 0;
+    char *timerName;
+    int call_id = 0;
+    if (data != NULL)
+    {
+        timerName = data->timerId;
+        call_id = data->call_id;
+        carNum = data->car_num;
+    }
+    else
+    {
+        printf("Error: Timer data is invalid\n");
+    }
+ 
     BLUE_TXT_CLR;
-    printf("Police Car %d has finished call handelling\n", carNum);
-    snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> Police Car %d has finished call handelling\n", carNum);
+    printf("Police Car %d has finished handelling call number  %d \n", carNum, call_id);
+    snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> police Car %d has finished handelling call number  %d \n", carNum, call_id);
     get_time(log_msg.log_time_stamp);
-    RST_TXT_CLR;
     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
     {
         my_assert(false, "failed to send call to log queue\n");
     }
-    set_reset_police_car_busy(&busy_police_cars , carNum, false);
-    // Stop timer at the end (applies to all cases)
+    set_reset_police_car_busy(&busy_police_cars, carNum, false);
+    RST_TXT_CLR;
     xTimerStop(xTimer, 0);
 }
 
-uint8_t getTimerPoliceCarNum(const char *timerName)
-{
-    if (strcmp(timerName, "police1") == 0)
-        return POLICE_1_TIMER;
-    if (strcmp(timerName, "police2") == 0)
-        return POLICE_2_TIMER;
-    if (strcmp(timerName, "police3") == 0)
-        return POLICE_3_TIMER;
-}
