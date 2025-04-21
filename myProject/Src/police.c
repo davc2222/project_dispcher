@@ -25,6 +25,14 @@ TimerDataPolice_t policeTimerData[POLICE_CAR_NUM];
 extern SemaphoreHandle_t xMutex;
 extern QueueHandle_t xQueue_log;
 
+/**
+ * @brief init the police  department.
+ *
+ * This function create  task , queue  and  timers
+ * @param[in] void
+ * @return void
+ */
+
 void init_police_department(void)
 {
 
@@ -46,12 +54,23 @@ void init_police_department(void)
     init_police_timers();
 }
 
-// Task police
+/**
+ * @brief corona task . handle all police cars
+ *
+ * This function check if there is  call for police
+ * then check if there is free car , if yes it assign car
+ * start timer for the call interval
+ * and remove the call from the queue
+ * if no car ava the call stay in the queue waiting for next try
+ * from the task
+ * @param[in] void
+ * @return void
+ */
 void Task_police(void *pvParameters)
 {
     log_msg_call_t log_msg;
     call_msg_t msg_police;
-    char call_msg_desc[100] = {0};
+   
     for (;;)
 
     {
@@ -79,7 +98,6 @@ void Task_police(void *pvParameters)
                     set_reset_police_car_busy(&busy_police_cars, available_car, CAR_BUSY);
                     BLUE_TXT_CLR;
                     printf("%s  handle call  %d\n", car_name, msg_police.call_id);
-                    snprintf(call_msg_desc, sizeof(call_msg_desc), " >> %s  handle call  %d\n", car_name, msg_police.call_id);
                     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> %s  handle call  %d\n", car_name, msg_police.call_id);
                     get_time(log_msg.log_time_stamp);
                     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
@@ -110,26 +128,38 @@ void Task_police(void *pvParameters)
         }
 
          
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        vTaskDelay(pdMS_TO_TICKS(TASK_POLICE_DELAY));
     }
 }
 
-// Police
+/**
+ * @brief set or reset car status
+ *
+ * @param[in] pointer for the busy  struct, car number , state
+ * @return  void
+ */
 
 uint8_t check_police_cars_busy(busy_police_cars_t *cars)
 {
 
-    if (cars->police_1 == AVAILABLE)
+    if (cars->police_1 == CAR_AVA)
         return 1;
 
-    if (cars->police_2 == AVAILABLE)
+    if (cars->police_2 == CAR_AVA)
         return 2;
 
-    if (cars->police_3 == AVAILABLE)
+    if (cars->police_3 ==CAR_AVA)
         return 3;
-
+    /* no free cars*/
     return NO_CAR_AVAILABLE;
 }
+
+/**
+ * @brief set or reset car status
+ *
+ * @param[in] pointer for the busy  struct, car number , state
+ * @return  void
+ */
 
 void set_reset_police_car_busy(busy_police_cars_t *cars, uint8_t car_num, bool state)
 {
@@ -150,7 +180,17 @@ void set_reset_police_car_busy(busy_police_cars_t *cars, uint8_t car_num, bool s
 
 
 // init police timers
-
+/**
+ * @brief init the cars timer
+ *
+ * This function create timer to each car 
+ * and associated with that car number
+ * the timer data struct hold the call id
+ * and hold the car num.
+ 
+ * @param[in] void
+ * @return void
+ */
 void init_police_timers(void)
 {
 
@@ -162,7 +202,6 @@ void init_police_timers(void)
         // Generate a unique timer name for each timer
         snprintf(timerName[i], sizeof(timerName[i]), "police%d", i + 1);
 
-        policeTimerData[i].timerId = timerName[i]; // 
         policeTimerData[i].call_id = 0; // set call id to 0
        policeTimerData[i].car_num = i + 1;  
           // Create the timer with the generated name
@@ -179,6 +218,21 @@ void init_police_timers(void)
     }
 }
 
+
+/**
+ * @brief police timers call back function
+ *
+ * this function handle all police timers call back
+ * it retrive the data from timer structure
+ *and print it to terminal indiacting that car  has
+ * finished handle call
+ * and althugh send the details to log queue
+ * stop the timer
+ 
+ * @param[in] timer object
+ * @return void
+ */
+
 void vPoliceTimerCallBackFunction(TimerHandle_t xTimer)
 {
     log_msg_call_t log_msg;
@@ -189,7 +243,7 @@ void vPoliceTimerCallBackFunction(TimerHandle_t xTimer)
     int call_id = 0;
     if (data != NULL)
     {
-        timerName = data->timerId;
+        
         call_id = data->call_id;
         carNum = data->car_num;
     }

@@ -45,7 +45,7 @@ void init_ambulance_department(void)
         my_assert(false, "failed to create Task ambulance");
     }
 
-    // create  police queue
+    // create  ambulance  queue
     xQueue_ambulance = xQueueCreate(AMBULANCE_QUEUE_LENGTH, AMBULANCE_QUEUE_SIZE);
 
     if (xQueue_ambulance == NULL)
@@ -73,9 +73,7 @@ void Task_ambulance(void *pvParameters)
 {
     log_msg_call_t log_msg;
     call_msg_t msg_ambulance;
-    static char call_msg_desc[100] = {0};
-    static char car_name[15];  
-    for (;;)
+    static char car_name[15]= {0};
     {
 
         if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
@@ -100,7 +98,6 @@ void Task_ambulance(void *pvParameters)
                     set_reset_ambulance_car_busy(&busy_ambulance_cars, available_car, CAR_BUSY);
                     YLW_TXT_CLR;
                     printf("%s  handle call- %d\n", car_name, msg_ambulance.call_id);
-                    snprintf(call_msg_desc, sizeof(call_msg_desc), " >> %s  handle call  %d\n", car_name, msg_ambulance.call_id);
                     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> %s  handle call  %d\n", car_name, msg_ambulance.call_id);
                     get_time(log_msg.log_time_stamp);
                     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
@@ -116,7 +113,7 @@ void Task_ambulance(void *pvParameters)
                 }
                 else
                 {
-                    // printf("There are no calls for ambulance\n"); // debug only
+                    printf("There are no calls for ambulance\n"); // debug only
                     break;
                 }
             }
@@ -126,7 +123,7 @@ void Task_ambulance(void *pvParameters)
         }
         else
         {       
-           // printf("failed to get mutex for Task_ambulance\n"); // debug only
+           printf("failed to get mutex for Task_ambulance\n"); // debug only
         }
 
         // delay
@@ -145,11 +142,11 @@ void Task_ambulance(void *pvParameters)
 uint8_t check_ambulance_cars_busy(busy_ambulance_cars_t *cars)
 {
 
-    if (cars->ambulance_1 == AVAILABLE)
+    if (cars->ambulance_1 == CAR_AVA)
         return 1;
-    if (cars->ambulance_2 == AVAILABLE)
+    if (cars->ambulance_2 == CAR_AVA)
         return 2;
-    if (cars->ambulance_3 == AVAILABLE)
+    if (cars->ambulance_3 == CAR_AVA)
         return 3;
 
     /* no free cars*/

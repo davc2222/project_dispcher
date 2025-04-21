@@ -74,7 +74,7 @@ void Task_corona(void *pvParameters)
 {
     log_msg_call_t log_msg; // struct fo log file
     call_msg_t msg_corona;  // struct to read and write queue
-
+    char car_name[15] = {0};
     for (;;)
     {
         if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
@@ -93,8 +93,7 @@ void Task_corona(void *pvParameters)
             case CAR_4:
                 if (xQueueReceive(xQueue_corona, &msg_corona, TASKS_RCVQUE_DELAY) == pdPASS)
                 {
-                     
-                    char car_name[15];
+                  
                     snprintf(car_name, sizeof(car_name), "Corona %d", available_car);
                     set_reset_corona_car_busy(&busy_corona_cars, available_car, CAR_BUSY);
                     PRPL_TXT_CLR;
@@ -130,7 +129,7 @@ void Task_corona(void *pvParameters)
         }
 
         // delay
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        vTaskDelay(pdMS_TO_TICKS(TASK_CORONA_DELAY));
     }
 }
 
@@ -143,13 +142,13 @@ void Task_corona(void *pvParameters)
  */
 uint8_t check_corona_cars_busy(busy_corona_cars_t *cars)
 {
-    if (cars->corona_1 == AVAILABLE)
+    if (cars->corona_1 == CAR_AVA)
         return 1;
-    if (cars->corona_2 == AVAILABLE)
+    if (cars->corona_2 == CAR_AVA)
         return 2;
-    if (cars->corona_3 == AVAILABLE)
+    if (cars->corona_3 == CAR_AVA)
         return 3;
-    if (cars->corona_4 == AVAILABLE)
+    if (cars->corona_4 == CAR_AVA)
         return 4;
     /* no free cars*/
     return NO_CAR_AVAILABLE;
@@ -226,7 +225,7 @@ void init_corona_timers(void)
  * this function handle all corona timers call back
  * it retrive the data from timer structure
  *and print it to terminal indiacting that car  has
- * finished andle call
+ * finished handle call
  * and althugh send the details to log queue
  * stop the timer
  

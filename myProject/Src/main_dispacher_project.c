@@ -46,19 +46,19 @@ void init_program(void)
     my_assert(false, "failed to create mutex");
   }
   //   dispatcer
-  init_dispacher_center();
+   init_dispacher_center();
 
   // police
- init_police_department();
+  // init_police_department();
 
   // ambulance
- init_ambulance_department();
+init_ambulance_department();
 
   // fire
- init_fire_department();
+ //init_fire_department();
 
   // corona
-  init_corona_department();
+   // init_corona_department();
 
   // init random function
   srand(time(NULL));
