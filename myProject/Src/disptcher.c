@@ -23,8 +23,7 @@ int call_id = 0;
 // a global mutex
 extern SemaphoreHandle_t xMutex;
 
-// Timer handlers
-// void xDspthCallTimerCBF(TimerHandle_t xTimer);
+// Timer handler
 TimerHandle_t xDspthCallTimer;
 void xDspthCallTimerCBF(TimerHandle_t xTimer);
 // queues
@@ -33,6 +32,8 @@ extern QueueHandle_t xQueue_police;
 extern QueueHandle_t xQueue_ambulance;
 extern QueueHandle_t xQueue_fire;
 extern QueueHandle_t xQueue_corona;
+// queue log
+extern QueueHandle_t xQueue_log;
 
 // Task dispther
 void Task_dispcher(void *pvParameters)
@@ -43,12 +44,12 @@ void Task_dispcher(void *pvParameters)
     // Pointer to store the chosen queue
     QueueHandle_t selected_queue = NULL;
     // to store call type
-    uint8_t selected_call_type_num = 0;
+       uint8_t selected_call_type_num = 0;
     // cal type(ambulancs, fire.....)
     int call_type = 0;
     // available car number
     uint8_t available_car = 0;
-    char selected_call_type_str[15] = "";
+    char selected_call_type_str[15] = {0};
 
     for (;;)
     {
@@ -56,15 +57,12 @@ void Task_dispcher(void *pvParameters)
         if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
 
         {
-           printf(" dis running\n");     // debug only
+           
             // check if there is call waitting
             if (xQueuePeek(xQueue_dispcher, &call_msg, 100) == pdPASS)
             {
                 call_type = call_msg.call_type;
-                call_type = 1;
              
-
-                printf("dspch call id %d+ call type %d\n " , call_msg.call_id  ,  call_type );
                 switch (call_type)
                 {
                 case police:
@@ -101,11 +99,9 @@ void Task_dispcher(void *pvParameters)
                     }
 
                 case ambulance:
-
-                    printf("ambulanceeeeeeeee   %d\n", call_msg.call_type); // debug only
-                    available_car = check_ambulance_cars_busy(&busy_ambulance_cars);
-                    printf(" ava car %d,   available_car", available_car);
-                    if (available_car != NO_CAR_AVAILABLE)
+            
+                   available_car = check_ambulance_cars_busy(&busy_ambulance_cars);
+                   if (available_car != NO_CAR_AVAILABLE)
                     {
                         selected_queue = xQueue_ambulance;
                         strcpy(selected_call_type_str, "Ambulance");
@@ -170,10 +166,9 @@ void Task_dispcher(void *pvParameters)
                     
                     if (check_corona_cars_busy(&busy_corona_cars) != NO_CAR_AVAILABLE)
                     {
-                        printf("corronaaaaaaaaaa\n");
+                      
                         available_car = check_corona_cars_busy(&busy_corona_cars);
                         selected_queue =  xQueue_corona;
-                        printf("corona car = %d\n",available_car);
                         strcpy(selected_call_type_str, "Corona");
                         break;
                     }
@@ -200,50 +195,51 @@ void Task_dispcher(void *pvParameters)
                         strcpy(selected_call_type_str, "Fire");
                         break;
                     }
-                    //  break;
-                default:
-
-                    printf("from case default %d \n", call_msg.call_type);
+                  
+              
                 }
             }
             else
             {
 
-                 printf("There is no messagess to dispatcher\n");
+               //  printf("There is no messagess to dispatcher\n");debug only
             }
-
+            
             if (selected_queue != NULL)
             {
-                *call_msg.call_desc='\0';
+               
+                * call_msg.call_desc='\0';
                 call_id = call_msg.call_id;
                 snprintf(call_msg.call_desc, sizeof(call_msg.call_desc), " >> Assign call number %d for %s \n", call_msg.call_id, selected_call_type_str);
                 RED_TXT_CLR;
                 printf("Dispacher recievd call number %d\n", call_msg.call_id);
                 RST_TXT_CLR;
 
-                if (xQueueSendToBack(xQueue_ambulance, &call_msg, TASKS_SNDQUE_DELAY) != pdPASS)
+                if (xQueueSendToBack(selected_queue, &call_msg, TASKS_SNDQUE_DELAY) != pdPASS)
                 {
                     my_assert(false, "failed to send call to log  queue\n");
                 }
-
+               
                 available_car = NO_CAR_AVAILABLE;
                 // clear the current queue
                 selected_queue = NULL;
                 // print dispacher messages
                 RED_TXT_CLR;
                 printf("%s", call_msg.call_desc);
-            //    write_call_time_to_log(LOG_FILE_NAME);
-            //    write_call_details_to_log(LOG_FILE_NAME, call_msg.call_desc);
+                write_call_time_to_log(LOG_FILE_NAME);
+               write_call_details_to_log(LOG_FILE_NAME, call_msg.call_desc);
                 RST_TXT_CLR;
              //   Remove the call from dispatcher queue only if successfully assigned
-                if (xQueueReceive(xQueue_dispcher, &call_msg, 100) != pdPASS)
+         
+                if (xQueueReceive(xQueue_dispcher, &call_msg, 200) != pdPASS)
                 {
                     printf("Failed to remove last call from dispatcher queue\n");
                 }
+            
             }
             else
             {
-                  printf(" queue is null\n");
+                  //printf(" queue is null\n");//debug only
                   
             }
         }
@@ -252,11 +248,10 @@ void Task_dispcher(void *pvParameters)
 
             // printf("failed to get mutex for Disptcher\n"); // debug only
         }
-     
+       
         // Release the mutex
         xSemaphoreGive(xMutex);
-        //  printf("dispacher relese mutex\n");
-        //  delay
+         //  delay
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
@@ -298,8 +293,8 @@ void handle_call_disptcher(void)
         call_msg.call_type = call_type_num;
         snprintf(call_msg.call_desc, sizeof(call_msg.call_desc), " >> Send  call number %d to disptcher queue\n", call_id);
         RED_TXT_CLR;
-      //  printf("call number %d been recived\n", call_msg.call_id);
-     //   printf("call type %s been recived\n", get_call_type_str(call_type_num));
+       printf("call number %d been recived\n", call_msg.call_id);
+       printf("call type %s been recived\n", get_call_type_str(call_type_num));
         RST_TXT_CLR;
         if (xQueueSendToBack(xQueue_dispcher, &call_msg, TASKS_SNDQUE_DELAY) != pdPASS)
         {

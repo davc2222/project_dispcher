@@ -74,7 +74,7 @@ void Task_fire(void *pvParameters)
 {
     call_msg_t msg_fire;
     log_msg_call_t log_msg;
-
+    char car_name[15] = {0};
     for (;;)
     {
 
@@ -95,7 +95,7 @@ void Task_fire(void *pvParameters)
             case CAR_2:
                 if (xQueueReceive(xQueue_fire, &msg_fire, TASKS_RCVQUE_DELAY) == pdPASS)
                 {
-                    char car_name[15];
+                   
                     snprintf(car_name, sizeof(car_name), "Fire %d", available_car);
                     set_reset_fire_car_busy(&busy_fire_cars, available_car, CAR_AVA);
                     GRN_TXT_CLR;
@@ -174,8 +174,6 @@ void set_reset_fire_car_busy(busy_fire_cars_t *cars, uint8_t car_num, bool state
         break;
     }
 }
-
-
 
 /**
  * @brief init the cars timer

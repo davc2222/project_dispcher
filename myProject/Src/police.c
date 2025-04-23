@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <queue.h>
+// program
 #include "police.h"
 #include "error.h"
 #include "disptcher.h"
@@ -23,6 +24,7 @@ busy_police_cars_t busy_police_cars;
 TimerDataPolice_t policeTimerData[POLICE_CAR_NUM];
 //  global mutex
 extern SemaphoreHandle_t xMutex;
+// log queue
 extern QueueHandle_t xQueue_log;
 
 /**
@@ -70,7 +72,7 @@ void Task_police(void *pvParameters)
 {
     log_msg_call_t log_msg;
     call_msg_t msg_police;
-   
+    char car_name[15] = {0};
     for (;;)
 
     {
@@ -84,16 +86,15 @@ void Task_police(void *pvParameters)
 
             case NO_CAR_AVAILABLE:
 
-                //   printf("all police cars occupied\n");
+                //   printf("all police cars occupied\n"); debug only
                 break;
 
             case CAR_1:
             case CAR_2:
             case CAR_3:
                 if (xQueueReceive(xQueue_police, &msg_police, TASKS_RCVQUE_DELAY) == pdPASS)
-                {
-                   
-                    char car_name[15];
+                {             
+            
                     snprintf(car_name, sizeof(car_name), "Police %d", available_car);
                     set_reset_police_car_busy(&busy_police_cars, available_car, CAR_BUSY);
                     BLUE_TXT_CLR;
@@ -239,7 +240,6 @@ void vPoliceTimerCallBackFunction(TimerHandle_t xTimer)
     // Retrieve the TimerDataCorona structure from the Timer 
     TimerDataPolice_t *data = (TimerDataPolice_t*)pvTimerGetTimerID(xTimer);
     uint8_t carNum = 0;
-    char *timerName;
     int call_id = 0;
     if (data != NULL)
     {
@@ -249,7 +249,7 @@ void vPoliceTimerCallBackFunction(TimerHandle_t xTimer)
     }
     else
     {
-        printf("Error: Timer data is invalid\n");
+       //  printf("Error: Timer data is invalid\n");debug only
     }
  
     BLUE_TXT_CLR;

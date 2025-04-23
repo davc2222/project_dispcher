@@ -106,7 +106,6 @@ void Task_corona(void *pvParameters)
                     }
                     coronaTimerData[available_car - 1].call_id = msg_corona.call_id;
                     int handl_time = getRandomNumber(MIN_CORONA_CALL_HNDL_TIME, MAX_CORONA_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
-                    printf("corona ava car = %d\n", available_car);
                     xTimerChangePeriod(xCoronaTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0); // set new time for call
                     xTimerStart(xCoronaTimers[available_car - 1], 0);
                     RST_TXT_CLR;
@@ -114,7 +113,7 @@ void Task_corona(void *pvParameters)
                 }
                 else
                 {
-                    printf("There are no calls for corona\n"); // debug only
+                  //  printf("There are no calls for corona\n"); // debug only
                     break;
                 }
             }
@@ -125,7 +124,7 @@ void Task_corona(void *pvParameters)
         else
         {
 
-            printf("failed to get mutex for Task_corona\n"); // debug only
+          //  printf("failed to get mutex for Task_corona\n"); // debug only
         }
 
         // delay
@@ -247,7 +246,7 @@ void vCoronaTimerCallBackFunction(TimerHandle_t xTimer)
     }
     else
     {
-        printf("Error: Timer data is invalid\n");
+        //printf("Error: Timer data is invalid\n");debug only
     }
 
     PRPL_TXT_CLR;

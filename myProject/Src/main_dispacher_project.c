@@ -16,8 +16,7 @@
 #include "ambulance.h"
 #include "main_dispacher_project.h"
 #include "log.h"
-// init value for dispacher timer
-// void vTestTask(void *pvParameters);
+
 // Declare a global mutex
 SemaphoreHandle_t xMutex;
 // Timer handlers
@@ -49,16 +48,16 @@ void init_program(void)
    init_dispacher_center();
 
   // police
-  // init_police_department();
+     init_police_department();
 
   // ambulance
-init_ambulance_department();
+  init_ambulance_department();
 
   // fire
- //init_fire_department();
+  init_fire_department();
 
   // corona
-   // init_corona_department();
+   init_corona_department();
 
   // init random function
   srand(time(NULL));

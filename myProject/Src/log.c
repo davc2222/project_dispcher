@@ -63,7 +63,7 @@ void Task_log(void *pvParameters)
 
            // printf("failed to get mutex for log task\n"); // debug only
         }
-         printf("hellow log\n");
+     
         // Release the mutex
         xSemaphoreGive(xMutex);
         vTaskDelay(pdMS_TO_TICKS(1000));
