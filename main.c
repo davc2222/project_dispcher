@@ -18,8 +18,8 @@ int main(void)
 
     /* Initialise the trace recorder.  Use of the trace recorder is optional.
      * See http://www.FreeRTOS.org/trace for more information. */
-    vTraceEnable(TRC_START);
-    //   pthread_attr_setstacksize(&attr, 16384); // Set 16 KB stack size
+      vTraceEnable(TRC_START);
+     // pthread_attr_setstacksize(&attr, 16384); // Set 16 KB stack size
 
     console_init();
 

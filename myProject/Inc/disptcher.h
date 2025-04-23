@@ -2,9 +2,8 @@
 #define DISPTCHER_H
 #include "main_dispacher_project.h"
 
-#define BUSY 1
-#define AVAILABLE 0
-#define NO_CAR_AVAILABLE 99
+
+#define NO_CAR_AVAILABLE -1
 
 #define CAR_AVA   false
 #define CAR_BUSY true
@@ -22,11 +21,11 @@
 #define DSPCR_QUEUE_SIZE       sizeof(call_msg_t)  
 
 // set prioreties 
-#define TASK_DSPTCR_PRI    2
+#define TASK_DSPTCR_PRI    3
 #define TASK_PLC_PRI           2
 #define TASK_FRE_PRI           2
 #define TASK_AMBLNC_PRI  2
-#define TASK_CRNA_PRI       3
+#define TASK_CRNA_PRI       2
 #define TASK_LOG_PRI          1
 
 
@@ -36,7 +35,7 @@
 #define CAR_4    4
 
 
-#define TASKS_SMFR_DELAY 300
+#define TASKS_SMFR_DELAY 500
 #define TASKS_RCVQUE_DELAY 100
 #define TASKS_SNDQUE_DELAY 100
 
