@@ -97,7 +97,7 @@ void Task_fire(void *pvParameters)
                 {
                    
                     snprintf(car_name, sizeof(car_name), "Fire %d", available_car);
-                    set_reset_fire_car_busy(&busy_fire_cars, available_car, CAR_AVA);
+                    set_reset_fire_car_busy(&busy_fire_cars, available_car, CAR_BUSY);
                     GRN_TXT_CLR;
                     printf("%s  handle call- %d\n", car_name, msg_fire.call_id);
                     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> %s  handle call  %d\n", car_name, msg_fire.call_id);
@@ -190,7 +190,7 @@ void set_reset_fire_car_busy(busy_fire_cars_t *cars, uint8_t car_num, bool state
 void init_fire_timers(void)
 {
     // Static array to store the timer names
-    static char timerName[FIRE_CAR_NUM][11]; // Array to hold timer names
+       char timerName[FIRE_CAR_NUM][11]; // Array to hold timer names
 
     for (int i = 0; i < FIRE_CAR_NUM; i++)
     {
@@ -221,7 +221,7 @@ void init_fire_timers(void)
  * finished andle call
  * and althugh send the details to log queue
  * stop the timer
- 
+
  * @param[in] timer object
  * @return void
  */

@@ -23,7 +23,6 @@ typedef struct
 // Define a structure to attach to the timer
 typedef struct {
 
-   char * timerId;
    int call_id;
    uint8_t car_num;
 

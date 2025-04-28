@@ -19,7 +19,16 @@ char formatted_message[100];
 const char *log_filename = LOG_FILE_NAME;
 QueueHandle_t xQueue_log;
 extern SemaphoreHandle_t xMutex;
-void init_log_handl(void)
+
+/**
+ * @brief init the log 
+ *
+ * This function create  task , queue  and log file
+ * @param[in] void
+ * @return void
+ */
+
+void init_log_handler(void)
 {
 
     if (xTaskCreate(Task_log, "Task log", configMINIMAL_STACK_SIZE, NULL, TASK_LOG_PRI, NULL) != pdPASS)
@@ -39,6 +48,16 @@ void init_log_handl(void)
 
     init_log_file();
 }
+
+
+/**
+ * @brief the task read messages from queue 
+ * and write it to log file with tims stamp
+ *
+ * 
+ * @param[in] void *pvParameters
+ * @return void
+ */
 
 void Task_log(void *pvParameters)
 {
@@ -71,6 +90,16 @@ void Task_log(void *pvParameters)
     }
 }
 
+
+/**
+ * @brief open a log file
+ * clear the file 
+ * and then open it in appened mode
+ * write the title , date created and description
+ * 
+ * @param[in] void *pvParameters
+ * @return void
+ */
 void init_log_file(void)
 {
 
@@ -108,18 +137,21 @@ void init_log_file(void)
     fflush(log_file); //
 }
 
-/// @brief
-/// @param filename
-/// @param message
+/// @ write string to file
+/// @param[in] filename pointer , string pointer
+/// @return void
 
 void writeToLog(FILE *filename, const char *message)
 {
     fprintf(filename, "%s", message); // Write the message to the file
 }
 
-/// @brief
-/// @param filename
-/// @param message
+/**
+ * @brief write time stamp to log file
+ * 
+ * @param[in] pointer to file name
+ * @return void
+ */
 
 void write_call_time_to_log(const char *file_name)
 {
@@ -128,36 +160,37 @@ void write_call_time_to_log(const char *file_name)
 
     // store time in buffer and get pointer
     time_buffer_p = get_time(time_buffer);
-
     writeToLog(file, time_buffer_p);
     fflush(file);
 }
 
-/// @brief
-/// @param filename
-/// @param message
+/**
+ * @brief write call details to log file
+
+ * @param[in] pointer to log file, pointer to string
+ * @return void
+ */
 
 void write_call_details_to_log(const char *file_name, const char *desc)
 {
 
     FILE *file = fopen(file_name, "a"); // Open the file in write mode
-
-    // store time in buffer and get pointer
-    //   time_buffer_p = get_time(time_buffer);
-    // write the header file >> date and time
-
-    // snprintf(formatted_message, sizeof(formatted_message), "Log file for 911 calls.created in :============ : %s============\n", time_buffer_p);
+   
     writeToLog(file, desc);
+
     fflush(file);
 }
 
-/// @brief
-/// @param filename
-/// @param message
+/**
+ * @brief get time and store it 
+ * into buffer
+ * 
+ * @param[in] pointer to buffer
+ * @return pointer to buffer
+ */
 
 char *get_time(char *time_buffer)
 {
-
     time_t current_time;
     struct tm *local_time;
 
@@ -179,8 +212,7 @@ char *get_time(char *time_buffer)
     // Format the time as a string
     strftime(time_buffer, TIME_BUFFER_SIZE, "%Y-%m-%d %H:%M:%S", local_time);
 
-    // Print the formatted time
-    // printf("Formatted local time: %s\n", formatted_time);
+    
 
     return &time_buffer[0];
 }

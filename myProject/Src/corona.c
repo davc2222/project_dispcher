@@ -19,7 +19,7 @@
 TimerHandle_t xCoronaTimers[CORONA_CAR_NUM];
 // struct to hold the data structures for each timer
 TimerDataCorona_t coronaTimerData[CORONA_CAR_NUM];
-// declare call back function to corona timere 
+// declare call back function to corona timers
 void vCoronaTimerCallBackFunction(TimerHandle_t xTimer);
 // corona queue handler
 QueueHandle_t xQueue_corona;
@@ -59,7 +59,7 @@ void init_corona_department(void)
     init_corona_timers();
 }
 /**
- * @brief corona task . handle all ambulance cars
+ * @brief corona task . handle all corona cars
  *
  * This function check if there is  call to corona
  * then check if there is free car , if yes it assign car
@@ -193,15 +193,14 @@ void set_reset_corona_car_busy(busy_corona_cars_t *cars, uint8_t car_num, bool s
 
 void init_corona_timers(void)
 {
-    // Static array to store the timer names
-    static char timerName[CORONA_CAR_NUM][11]; // Array to hold timer names
+    //  array to store the timer names
+        char timerName[CORONA_CAR_NUM][11]; // Array to hold timer names
 
     for (int i = 0; i < CORONA_CAR_NUM; i++)
     {
         // Generate a unique timer name for each timer
         snprintf(timerName[i], sizeof(timerName[i]), "corona%d", i + 1);
 
-        coronaTimerData[i].timerId = timerName[i]; // 
         coronaTimerData[i].call_id = 0; // set call id to 0
         coronaTimerData[i].car_num = i + 1;  
           // Create the timer with the generated name

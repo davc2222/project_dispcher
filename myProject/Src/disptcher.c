@@ -9,6 +9,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+// program
 #include "ambulance.h"
 #include "disptcher.h"
 #include "main_dispacher_project.h"
@@ -35,7 +36,21 @@ extern QueueHandle_t xQueue_corona;
 // queue log
 extern QueueHandle_t xQueue_log;
 
-// Task dispther
+/**
+ * @brief dispcher task . the core of the program
+ *
+ * This function has the highest priority
+ * she read the call queue and assaign calls to the drsired  departements , but before
+ *she check if to the desired departement has free car and assaign it directly
+ * in case that the desired department has no free car the dispcher will check in all 
+ * the depatements to find a free car.if no car free found the call would stay in the queue
+ *when assign call to spefic car assigment she set a timer to random handle time.
+ * all the events are recorded to log file.
+ * 
+ * @param[in] void *pvParameters
+ * @return void
+ */
+
 void Task_dispcher(void *pvParameters)
 
 {
@@ -208,7 +223,7 @@ void Task_dispcher(void *pvParameters)
             if (selected_queue != NULL)
             {
                
-                * call_msg.call_desc='\0';
+                *call_msg.call_desc='\0';
                 call_id = call_msg.call_id;
                 snprintf(call_msg.call_desc, sizeof(call_msg.call_desc), " >> Assign call number %d for %s \n", call_msg.call_id, selected_call_type_str);
                 RED_TXT_CLR;
@@ -229,7 +244,7 @@ void Task_dispcher(void *pvParameters)
                 write_call_time_to_log(LOG_FILE_NAME);
                write_call_details_to_log(LOG_FILE_NAME, call_msg.call_desc);
                 RST_TXT_CLR;
-             //   Remove the call from dispatcher queue only if successfully assigned
+             //   Remove the call from dispatcher queue , only if successfully assigned
          
                 if (xQueueReceive(xQueue_dispcher, &call_msg, 200) != pdPASS)
                 {
@@ -256,6 +271,14 @@ void Task_dispcher(void *pvParameters)
     }
 }
 
+/**
+ * @brief init the disptcher department.
+ *
+ * This function create  task , queue  
+ * @param[in] void
+ * @return void
+ */
+
 void init_dispacher_center(void)
 {
 
@@ -281,13 +304,23 @@ void init_dispacher_center(void)
     xTimerStart(xDspthCallTimer, 0);
 }
 
+
+/**
+ * @brief generate calls to disptcher
+ *
+ * generate random call type
+ * increment the call id var 
+ * send the new call to dispcher
+ * @param[in] void
+ * @return void
+ */
+
 void handle_call_disptcher(void)
 {
     if (xSemaphoreTake(xMutex, 100) == pdTRUE)
     {
-
+        // get random call type 
         int call_type_num = getRandomNumber(0, (int)(CALL_TYPE_NUM - 1));
-
         call_msg_t call_msg;
         call_msg.call_id = ++call_id;
         call_msg.call_type = call_type_num;
@@ -305,17 +338,32 @@ void handle_call_disptcher(void)
     xSemaphoreGive(xMutex);
 }
 
+/**
+ * @brief dispcher timer call back fubctiom
+ * This function genrate a random time 
+ * and call the handle call dispcher function
+ * @param[in] xTimer object
+ * @return void
+ */
+
 void xDspthCallTimerCBF(TimerHandle_t xTimer)
 {
     int period = getRandomNumber(MIN_DSPCR_CALL_HNDL_TIME, MAX_DSPCR_CALL_HNDL_TIME) * 1000;
 
     // change randomly timer period
-
     xTimerChangePeriod(xTimer, pdMS_TO_TICKS(period), 100);
 
     // call dispather to generate new call
     handle_call_disptcher();
 }
+
+/**
+ * @brief return call type string by num.
+ *
+ * 
+ * @param[in] call type num
+ * @return string pointer
+ */
 
 const char *get_call_type_str(call_types_t callType)
 {

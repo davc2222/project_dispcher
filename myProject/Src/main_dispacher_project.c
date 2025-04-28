@@ -6,7 +6,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
-
+// program
 #include "disptcher.h"
 #include "log.h"
 #include "error.h"
@@ -19,12 +19,12 @@
 
 // Declare a global mutex
 SemaphoreHandle_t xMutex;
-// Timer handlers
 
 int main_dispacher_project(void)
 {
 
   init_program();
+
   // Start FreeRTOS Scheduler
   vTaskStartScheduler();
 
@@ -33,6 +33,15 @@ int main_dispacher_project(void)
   for (;;)
     ;
 }
+
+/**
+ * @brief init the program.
+ *
+ * This function create mutex ,and init the disptcer
+ * and all depatments + log init _ans start random
+ * @param[in] void
+ * @return void
+ */
 
 void init_program(void)
 {
@@ -45,10 +54,10 @@ void init_program(void)
     my_assert(false, "failed to create mutex");
   }
   //   dispatcer
-   init_dispacher_center();
+  init_dispacher_center();
 
   // police
-     init_police_department();
+  init_police_department();
 
   // ambulance
   init_ambulance_department();
@@ -57,14 +66,22 @@ void init_program(void)
   init_fire_department();
 
   // corona
-   init_corona_department();
+  init_corona_department();
 
   // init random function
   srand(time(NULL));
 
   // init new log  file
-  init_log_handl();
+   init_log_handler();
 }
+
+/**
+ * @brief return random number
+ * between min and max
+
+ * @param[in] void
+ * @return int between min and max
+ */
 
 int getRandomNumber(int min, int max)
 {

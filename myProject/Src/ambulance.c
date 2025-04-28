@@ -200,8 +200,8 @@ void set_reset_ambulance_car_busy(busy_ambulance_cars_t *cars, uint8_t car_num, 
 void init_ambulace_timers(void)
 {
 
-    // Static array to store the timer names
-    static char timerName[AMBULANCE_CAR_NUM][11]; // Array to hold timer names
+    // array to store the timer names
+       char timerName[AMBULANCE_CAR_NUM][11]; // Array to hold timer names
 
     for (int i = 0; i < AMBULANCE_CAR_NUM; i++)
     {

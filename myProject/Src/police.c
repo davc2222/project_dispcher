@@ -16,6 +16,7 @@
 #include "main_dispacher_project.h"
 #include "log.h"
 
+ // array to store timers
 TimerHandle_t xPoliceTimers[POLICE_CAR_NUM];
 void vPoliceTimerCallBackFunction(TimerHandle_t xTimer);
 QueueHandle_t xQueue_police;
@@ -78,7 +79,7 @@ void Task_police(void *pvParameters)
     {
         if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
         {
-           //  printf("Task police  is using the shared resource\n"); // debug only
+           
             uint8_t available_car = check_police_cars_busy(&busy_police_cars);
 
             switch (available_car)
@@ -94,7 +95,7 @@ void Task_police(void *pvParameters)
             case CAR_3:
                 if (xQueueReceive(xQueue_police, &msg_police, TASKS_RCVQUE_DELAY) == pdPASS)
                 {             
-            
+
                     snprintf(car_name, sizeof(car_name), "Police %d", available_car);
                     set_reset_police_car_busy(&busy_police_cars, available_car, CAR_BUSY);
                     BLUE_TXT_CLR;
@@ -124,7 +125,7 @@ void Task_police(void *pvParameters)
         }
         else
         {
-            RST_TXT_CLR;
+           
          //   printf("failed to get mutex for Task_police\n"); // debug only
         }
 
@@ -262,6 +263,7 @@ void vPoliceTimerCallBackFunction(TimerHandle_t xTimer)
     }
     set_reset_police_car_busy(&busy_police_cars, carNum, false);
     RST_TXT_CLR;
+    
     xTimerStop(xTimer, 0);
 }
 

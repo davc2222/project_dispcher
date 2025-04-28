@@ -3,12 +3,12 @@
 
 
 
-#define NO_CAR_AVAILABLE -1
+#define NO_CAR_AVAILABLE    -1
 
 #define CAR_AVA   false
 #define CAR_BUSY true
 
-// define department numbers
+// define departments number
 #define CALL_TYPE_NUM  4
 
 #define MIN_DSPCR_CALL_HNDL_TIME    1
@@ -17,7 +17,7 @@
 // used only one time at program start
 #define DSPTC_TIMER__START_PERIOD_MS  1000
 
-#define DSPCR_QUEUE_LENGTH  100
+#define DSPCR_QUEUE_LENGTH  50
 #define DSPCR_QUEUE_SIZE       sizeof(call_msg_t)  
 
 // set prioreties 
@@ -35,7 +35,7 @@
 #define CAR_4    4
 
 
-#define TASKS_SMFR_DELAY 500
+#define TASKS_SMFR_DELAY 200
 #define TASKS_RCVQUE_DELAY 100
 #define TASKS_SNDQUE_DELAY 100
 
@@ -62,7 +62,6 @@ typedef struct
 void init_dispacher_center(void);
 void Task_dispcher(void *pvParameters);
 void handle_call_disptcher(void);
-
 const char *get_call_type_str(call_types_t call_type);
 
 #endif
