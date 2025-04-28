@@ -66,7 +66,7 @@ void Task_log(void *pvParameters)
 
     for (;;)
     {
-        if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
+        if (xSemaphoreTake(xMutex, TASK_LOG_SMFR_DELAY) == pdTRUE)
         {
             if (xQueueReceive(xQueue_log, &log_msg, TASKS_RCVQUE_DELAY) == pdPASS)
             {

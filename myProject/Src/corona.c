@@ -194,14 +194,14 @@ void set_reset_corona_car_busy(busy_corona_cars_t *cars, uint8_t car_num, bool s
 void init_corona_timers(void)
 {
     //  array to store the timer names
-        char timerName[CORONA_CAR_NUM][11]; // Array to hold timer names
+       static char timerName[CORONA_CAR_NUM][11]; // Array to hold timer names
 
     for (int i = 0; i < CORONA_CAR_NUM; i++)
     {
         // Generate a unique timer name for each timer
         snprintf(timerName[i], sizeof(timerName[i]), "corona%d", i + 1);
 
-        coronaTimerData[i].call_id = 0; // set call id to 0
+       coronaTimerData[i].call_id = 0; // set call id to 0
         coronaTimerData[i].car_num = i + 1;  
           // Create the timer with the generated name
         xCoronaTimers[i] = xTimerCreate(timerName[i],

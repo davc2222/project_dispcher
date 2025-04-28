@@ -5,7 +5,7 @@
 #define TASK_CORONA_DELAY   1000
 
 #define CORONA_CAR_NUM  4
-#define CORONA_QUEUE_LENGTH  20
+#define CORONA_QUEUE_LENGTH  50
 #define CORONA_QUEUE_SIZE       sizeof(call_msg_t)  
 
 

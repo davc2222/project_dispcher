@@ -242,7 +242,7 @@ void Task_dispcher(void *pvParameters)
                 RED_TXT_CLR;
                 printf("%s", call_msg.call_desc);
                 write_call_time_to_log(LOG_FILE_NAME);
-               write_call_details_to_log(LOG_FILE_NAME, call_msg.call_desc);
+                write_call_details_to_log(LOG_FILE_NAME, call_msg.call_desc);
                 RST_TXT_CLR;
              //   Remove the call from dispatcher queue , only if successfully assigned
          

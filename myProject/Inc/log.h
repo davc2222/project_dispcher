@@ -4,7 +4,7 @@
 
 #define LOG_FILE_NAME "log_file.txt" // Define the log file name
 
-#define LOG_QUEUE_LENGTH  20
+#define LOG_QUEUE_LENGTH 50
 #define LOG_QUEUE_SIZE       sizeof(log_msg_call_t)  
 
 

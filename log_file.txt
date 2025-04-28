@@ -1,168 +1,30 @@
- Log file for 911 calls.created in :============ : 2025-04-28 07:33:25============
+ Log file for 911 calls.created in :============ : 2025-04-28 14:20:44============
 
 
-2025-04-28 07:33:26 >> Assign call number 1 for Corona 
-2025-04-28 07:33:27 >> Assign call number 2 for Ambulance 
-2025-04-28 07:33:27 >> Ambulance 1  handle call  2
-2025-04-28 07:33:28 >> Corona 1  handle call  1
-2025-04-28 07:33:32 >> Assign call number 3 for Ambulance 
-2025-04-28 07:33:33 >> Ambulance 2  handle call  3
-2025-04-28 07:33:34 >> Ambulance Car 1 has finished handelling call number  2 
-2025-04-28 07:33:35 >> Corona Car 1 has finished handelling call number  1 
-2025-04-28 07:33:37 >> Assign call number 4 for Police 
-2025-04-28 07:33:38 >> Police 1  handle call  4
-2025-04-28 07:33:40 >> Assign call number 5 for Ambulance 
-2025-04-28 07:33:40 >> Ambulance 1  handle call  5
-2025-04-28 07:33:41 >> Ambulance Car 2 has finished handelling call number  3 
-2025-04-28 07:33:42 >> Assign call number 6 for Police 
-2025-04-28 07:33:43 >> Police 2  handle call  6
-2025-04-28 07:33:44 >> police Car 1 has finished handelling call number  4 
-2025-04-28 07:33:46 >> Assign call number 7 for Police 
-2025-04-28 07:33:47 >> Police 1  handle call  7
-2025-04-28 07:33:49 >> Assign call number 8 for Police 
-2025-04-28 07:33:49 >> Ambulance Car 1 has finished handelling call number  5 
-2025-04-28 07:33:50 >> Assign call number 9 for Corona 
-2025-04-28 07:33:50 >> Police 3  handle call  8
-2025-04-28 07:33:51 >> Corona 1  handle call  9
-2025-04-28 07:33:53 >> police Car 2 has finished handelling call number  6 
-2025-04-28 07:33:55 >> Assign call number 10 for Corona 
-2025-04-28 07:33:56 >> Corona 2  handle call  10
-2025-04-28 07:33:57 >> police Car 1 has finished handelling call number  7 
-2025-04-28 07:33:58 >> police Car 3 has finished handelling call number  8 
-2025-04-28 07:33:59 >> Assign call number 11 for Ambulance 
-2025-04-28 07:34:00 >> Ambulance 1  handle call  11
-2025-04-28 07:34:01 >> Corona Car 1 has finished handelling call number  9 
-2025-04-28 07:34:02 >> Corona Car 2 has finished handelling call number  10 
-2025-04-28 07:34:03 >> Assign call number 12 for Fire 
-2025-04-28 07:34:04 >> Assign call number 13 for Ambulance 
-2025-04-28 07:34:05 >> Fire 1  handle call  12
-2025-04-28 07:34:06 >> Ambulance 2  handle call  13
-2025-04-28 07:34:07 >> Assign call number 14 for Corona 
-2025-04-28 07:34:07 >> Ambulance Car 1 has finished handelling call number  11 
-2025-04-28 07:34:08 >> Corona 1  handle call  14
-2025-04-28 07:34:10 >> Ambulance Car 2 has finished handelling call number  13 
-2025-04-28 07:34:11 >> Fire Car 1 has finished handelling call number  12 
-2025-04-28 07:34:12 >> Assign call number 15 for Fire 
-2025-04-28 07:34:13 >> Fire 1  handle call  15
-2025-04-28 07:34:14 >> Corona Car 1 has finished handelling call number  14 
-2025-04-28 07:34:15 >> Assign call number 16 for Corona 
-2025-04-28 07:34:17 >> Corona 1  handle call  16
-2025-04-28 07:34:19 >> Assign call number 17 for Ambulance 
-2025-04-28 07:34:20 >> Ambulance 1  handle call  17
-2025-04-28 07:34:22 >> Corona Car 1 has finished handelling call number  16 
-2025-04-28 07:34:23 >> Assign call number 18 for Corona 
-2025-04-28 07:34:23 >> Fire Car 1 has finished handelling call number  15 
-2025-04-28 07:34:24 >> Corona 1  handle call  18
-2025-04-28 07:34:26 >> Assign call number 19 for Corona 
-2025-04-28 07:34:28 >> Assign call number 20 for Fire 
-2025-04-28 07:34:28 >> Corona 2  handle call  19
-2025-04-28 07:34:29 >> Ambulance Car 1 has finished handelling call number  17 
-2025-04-28 07:34:30 >> Fire 1  handle call  20
-2025-04-28 07:34:31 >> Assign call number 21 for Corona 
-2025-04-28 07:34:32 >> Corona 3  handle call  21
-2025-04-28 07:34:34 >> Assign call number 22 for Corona 
-2025-04-28 07:34:34 >> Corona Car 1 has finished handelling call number  18 
-2025-04-28 07:34:35 >> Corona Car 2 has finished handelling call number  19 
-2025-04-28 07:34:36 >> Corona 1  handle call  22
-2025-04-28 07:34:37 >> Assign call number 23 for Police 
-2025-04-28 07:34:37 >> Corona Car 3 has finished handelling call number  21 
-2025-04-28 07:34:39 >> Assign call number 24 for Corona 
-2025-04-28 07:34:39 >> Police 1  handle call  23
-2025-04-28 07:34:40 >> Fire Car 1 has finished handelling call number  20 
-2025-04-28 07:34:41 >> Corona 2  handle call  24
-2025-04-28 07:34:43 >> Assign call number 25 for Police 
-2025-04-28 07:34:43 >> Corona Car 1 has finished handelling call number  22 
-2025-04-28 07:34:44 >> Police 2  handle call  25
-2025-04-28 07:34:45 >> police Car 1 has finished handelling call number  23 
-2025-04-28 07:34:46 >> Corona Car 2 has finished handelling call number  24 
-2025-04-28 07:34:48 >> Assign call number 26 for Corona 
-2025-04-28 07:34:50 >> police Car 2 has finished handelling call number  25 
-2025-04-28 07:34:51 >> Assign call number 27 for Corona 
-2025-04-28 07:34:51 >> Corona 1  handle call  26
-2025-04-28 07:34:52 >> Corona 2  handle call  27
-2025-04-28 07:34:55 >> Assign call number 28 for Police 
-2025-04-28 07:34:56 >> Police 1  handle call  28
-2025-04-28 07:34:57 >> Corona Car 1 has finished handelling call number  26 
-2025-04-28 07:34:59 >> Assign call number 29 for Ambulance 
-2025-04-28 07:35:00 >> Corona Car 2 has finished handelling call number  27 
-2025-04-28 07:35:01 >> Assign call number 30 for Fire 
-2025-04-28 07:35:01 >> Ambulance 1  handle call  29
-2025-04-28 07:35:02 >> Fire 1  handle call  30
-2025-04-28 07:35:03 >> Assign call number 31 for Corona 
-2025-04-28 07:35:04 >> Assign call number 32 for Corona 
-2025-04-28 07:35:04 >> Corona 1  handle call  31
-2025-04-28 07:35:05 >> Corona 2  handle call  32
-2025-04-28 07:35:06 >> Ambulance Car 1 has finished handelling call number  29 
-2025-04-28 07:35:07 >> police Car 1 has finished handelling call number  28 
-2025-04-28 07:35:09 >> Assign call number 33 for Corona 
-2025-04-28 07:35:09 >> Fire Car 1 has finished handelling call number  30 
-2025-04-28 07:35:10 >> Corona Car 1 has finished handelling call number  31 
-2025-04-28 07:35:12 >> Corona 1  handle call  33
-2025-04-28 07:35:13 >> Corona Car 2 has finished handelling call number  32 
-2025-04-28 07:35:14 >> Assign call number 34 for Fire 
-2025-04-28 07:35:15 >> Fire 1  handle call  34
-2025-04-28 07:35:17 >> Assign call number 35 for Fire 
-2025-04-28 07:35:18 >> Fire 2  handle call  35
-2025-04-28 07:35:20 >> Assign call number 36 for Fire 
-2025-04-28 07:35:20 >> Corona Car 1 has finished handelling call number  33 
-2025-04-28 07:35:22 >> Assign call number 37 for Ambulance 
-2025-04-28 07:35:23 >> Ambulance 1  handle call  37
-2025-04-28 07:35:25 >> Fire Car 2 has finished handelling call number  35 
-2025-04-28 07:35:26 >> Fire 2  handle call  36
-2025-04-28 07:35:27 >> Assign call number 38 for Fire 
-2025-04-28 07:35:27 >> Fire Car 1 has finished handelling call number  34 
-2025-04-28 07:35:28 >> Fire 1  handle call  38
-2025-04-28 07:35:29 >> Ambulance Car 1 has finished handelling call number  37 
-2025-04-28 07:35:31 >> Assign call number 39 for Fire 
-2025-04-28 07:35:31 >> Fire Car 2 has finished handelling call number  36 
-2025-04-28 07:35:32 >> Assign call number 40 for Corona 
-2025-04-28 07:35:32 >> Fire 2  handle call  39
-2025-04-28 07:35:33 >> Corona 1  handle call  40
-2025-04-28 07:35:38 >> Assign call number 41 for Corona 
-2025-04-28 07:35:38 >> Fire Car 2 has finished handelling call number  39 
-2025-04-28 07:35:39 >> Fire Car 1 has finished handelling call number  38 
-2025-04-28 07:35:40 >> Assign call number 42 for Fire 
-2025-04-28 07:35:40 >> Corona 2  handle call  41
-2025-04-28 07:35:41 >> Corona Car 1 has finished handelling call number  40 
-2025-04-28 07:35:42 >> Assign call number 43 for Fire 
-2025-04-28 07:35:42 >> Fire 1  handle call  42
-2025-04-28 07:35:43 >> Fire 2  handle call  43
-2025-04-28 07:35:44 >> Corona Car 2 has finished handelling call number  41 
-2025-04-28 07:35:46 >> Assign call number 44 for Police 
-2025-04-28 07:35:48 >> Fire Car 1 has finished handelling call number  42 
-2025-04-28 07:35:49 >> Police 1  handle call  44
-2025-04-28 07:35:51 >> Fire Car 2 has finished handelling call number  43 
-2025-04-28 07:35:52 >> Assign call number 45 for Ambulance 
-2025-04-28 07:35:53 >> Assign call number 46 for Fire 
-2025-04-28 07:35:53 >> Ambulance 1  handle call  45
-2025-04-28 07:35:54 >> police Car 1 has finished handelling call number  44 
-2025-04-28 07:35:55 >> Assign call number 47 for Corona 
-2025-04-28 07:35:55 >> Fire 1  handle call  46
-2025-04-28 07:35:56 >> Corona 1  handle call  47
-2025-04-28 07:35:57 >> Assign call number 48 for Ambulance 
-2025-04-28 07:35:59 >> Ambulance 2  handle call  48
-2025-04-28 07:36:00 >> Ambulance Car 1 has finished handelling call number  45 
-2025-04-28 07:36:01 >> Assign call number 49 for Ambulance 
-2025-04-28 07:36:01 >> Fire Car 1 has finished handelling call number  46 
-2025-04-28 07:36:02 >> Ambulance 1  handle call  49
-2025-04-28 07:36:03 >> Assign call number 50 for Police 
-2025-04-28 07:36:03 >> Corona Car 1 has finished handelling call number  47 
-2025-04-28 07:36:04 >> Assign call number 51 for Fire 
-2025-04-28 07:36:04 >> Police 1  handle call  50
-2025-04-28 07:36:05 >> Fire 1  handle call  51
-2025-04-28 07:36:06 >> Assign call number 52 for Fire 
-2025-04-28 07:36:07 >> Fire 2  handle call  52
-2025-04-28 07:36:08 >> Ambulance Car 2 has finished handelling call number  48 
-2025-04-28 07:36:11 >> Assign call number 53 for Fire 
-2025-04-28 07:36:12 >> Ambulance Car 1 has finished handelling call number  49 
-2025-04-28 07:36:13 >> police Car 1 has finished handelling call number  50 
-2025-04-28 07:36:14 >> Assign call number 54 for Corona 
-2025-04-28 07:36:15 >> Corona 1  handle call  54
-2025-04-28 07:36:16 >> Fire Car 1 has finished handelling call number  51 
-2025-04-28 07:36:17 >> Fire Car 2 has finished handelling call number  52 
-2025-04-28 07:36:18 >> Assign call number 55 for Police 
-2025-04-28 07:36:18 >> Fire 1  handle call  53
-2025-04-28 07:36:19 >> Police 1  handle call  55
-2025-04-28 07:36:20 >> Assign call number 56 for Ambulance 
-2025-04-28 07:36:21 >> Assign call number 57 for Ambulance 
-2025-04-28 07:36:21 >> Ambulance 1  handle call  56
+2025-04-28 14:20:45 >> Assign call number 1 for Ambulance 
+2025-04-28 14:20:45 >> Ambulance 1  handle call  1
+2025-04-28 14:20:50 >> Assign call number 2 for Police 
+2025-04-28 14:20:51 >> Police 1  handle call  2
+2025-04-28 14:20:53 >> Ambulance Car 1 has finished handelling call number  1 
+2025-04-28 14:20:55 >> Assign call number 3 for Ambulance 
+2025-04-28 14:20:55 >> Ambulance 1  handle call  3
+2025-04-28 14:20:56 >> police Car 1 has finished handelling call number  2 
+2025-04-28 14:20:58 >> Assign call number 4 for Fire 
+2025-04-28 14:20:59 >> Fire 1  handle call  4
+2025-04-28 14:21:01 >> Assign call number 5 for Corona 
+2025-04-28 14:21:02 >> Corona 1  handle call  5
+2025-04-28 14:21:03 >> Ambulance Car 1 has finished handelling call number  3 
+2025-04-28 14:21:05 >> Assign call number 6 for Fire 
+2025-04-28 14:21:05 >> Fire 2  handle call  6
+2025-04-28 14:21:06 >> Assign call number 7 for Fire 
+2025-04-28 14:21:07 >> Fire Car 1 has finished handelling call number  4 
+2025-04-28 14:21:09 >> Fire 1  handle call  7
+2025-04-28 14:21:10 >> Corona Car 1 has finished handelling call number  5 
+2025-04-28 14:21:11 >> Fire Car 2 has finished handelling call number  6 
+2025-04-28 14:21:12 >> Assign call number 8 for Ambulance 
+2025-04-28 14:21:13 >> Assign call number 9 for Corona 
+2025-04-28 14:21:13 >> Ambulance 1  handle call  8
+2025-04-28 14:21:14 >> Assign call number 10 for Fire 
+2025-04-28 14:21:14 >> Corona 1  handle call  9
+2025-04-28 14:21:15 >> Fire 2  handle call  10
+2025-04-28 14:21:17 >> Assign call number 11 for Ambulance 

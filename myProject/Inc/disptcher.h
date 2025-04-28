@@ -34,10 +34,10 @@
 #define CAR_3    3
 #define CAR_4    4
 
-
-#define TASKS_SMFR_DELAY 200
-#define TASKS_RCVQUE_DELAY 100
-#define TASKS_SNDQUE_DELAY 100
+#define TASK_LOG_SMFR_DELAY  500
+#define TASKS_SMFR_DELAY        100
+#define TASKS_RCVQUE_DELAY   100
+#define TASKS_SNDQUE_DELAY   100
 
 
 // used for call type number

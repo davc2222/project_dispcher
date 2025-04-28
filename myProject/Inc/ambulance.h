@@ -20,6 +20,7 @@ typedef struct
    uint8_t ambulance_1;
    uint8_t ambulance_2;
    uint8_t ambulance_3;
+   
 }busy_ambulance_cars_t;
  
 // busy struct

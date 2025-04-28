@@ -4,7 +4,7 @@
 #define TASK_POLICE_DELAY   1000
 
 #define  POLICE_CAR_NUM  3
-#define  POLICE_QUEUE_LENGTH  20
+#define  POLICE_QUEUE_LENGTH  50
 #define  POLICE_QUEUE_SIZE      sizeof(call_msg_t)   
 
 #define MIN_POLICE_CALL_HNDL_TIME    5 

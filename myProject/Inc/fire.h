@@ -4,7 +4,7 @@
 
 
 #define FIRE_CAR_NUM  2
-#define FIRE_QUEUE_LENGTH  20
+#define FIRE_QUEUE_LENGTH  50
 #define FIRE_QUEUE_SIZE       sizeof(call_msg_t)  
 
 #define MIN_FIRE_CALL_HNDL_TIME    5 
