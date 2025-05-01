@@ -197,7 +197,7 @@ void init_police_timers(void)
 {
 
     // Static array to store the timer names
-    static char timerName[POLICE_CAR_NUM][11]; // Array to hold timer names 
+     char timerName[POLICE_CAR_NUM][11]; // Array to hold timer names 
 
     for (int i = 0; i < POLICE_CAR_NUM; i++)
     {
