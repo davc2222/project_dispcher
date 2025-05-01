@@ -196,7 +196,7 @@ void set_reset_police_car_busy(busy_police_cars_t *cars, uint8_t car_num, bool s
 void init_police_timers(void)
 {
 
-    // Static array to store the timer names
+    //  array to store the timer names
      char timerName[POLICE_CAR_NUM][11]; // Array to hold timer names 
 
     for (int i = 0; i < POLICE_CAR_NUM; i++)
