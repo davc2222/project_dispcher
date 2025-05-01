@@ -190,7 +190,7 @@ void set_reset_fire_car_busy(busy_fire_cars_t *cars, uint8_t car_num, bool state
 void init_fire_timers(void)
 {
     // Static array to store the timer names
-    static char timerName[FIRE_CAR_NUM][11]; // Array to hold timer names
+     char timerName[FIRE_CAR_NUM][11]; // Array to hold timer names
 
     for (int i = 0; i < FIRE_CAR_NUM; i++)
     {
