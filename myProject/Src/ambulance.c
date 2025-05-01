@@ -201,7 +201,7 @@ void init_ambulace_timers(void)
 {
 
     // array to store the timer names
-       static char timerName[AMBULANCE_CAR_NUM][11]; // Array to hold timer names
+        char timerName[AMBULANCE_CAR_NUM][11]; // Array to hold timer names
 
     for (int i = 0; i < AMBULANCE_CAR_NUM; i++)
     {
