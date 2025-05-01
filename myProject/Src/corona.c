@@ -194,7 +194,7 @@ void set_reset_corona_car_busy(busy_corona_cars_t *cars, uint8_t car_num, bool s
 void init_corona_timers(void)
 {
     //  array to store the timer names
-       static char timerName[CORONA_CAR_NUM][11]; // Array to hold timer names
+        char timerName[CORONA_CAR_NUM][11]; // Array to hold timer names
 
     for (int i = 0; i < CORONA_CAR_NUM; i++)
     {
