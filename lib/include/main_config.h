@@ -21,6 +21,7 @@
 
 /*-----------------------------------------------------------*/
 
+void vAssertCalled(const char *const pcFileName, unsigned long ulLine);
 
 
 

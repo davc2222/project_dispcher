@@ -60,7 +60,7 @@ void init_program(void)
   init_police_department();
 
   // ambulance
-  init_ambulance_department();
+   init_ambulance_department();
 
   // fire
   init_fire_department();
@@ -87,3 +87,4 @@ int getRandomNumber(int min, int max)
 {
   return (rand() % (max - min + 1)) + min;
 }
+

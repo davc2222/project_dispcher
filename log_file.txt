@@ -1,30 +1,27 @@
- Log file for 911 calls.created in :============ : 2025-04-28 14:20:44============
+ Log file for 911 calls.created in :============ : 2025-06-08 17:53:25============
 
 
-2025-04-28 14:20:45 >> Assign call number 1 for Ambulance 
-2025-04-28 14:20:45 >> Ambulance 1  handle call  1
-2025-04-28 14:20:50 >> Assign call number 2 for Police 
-2025-04-28 14:20:51 >> Police 1  handle call  2
-2025-04-28 14:20:53 >> Ambulance Car 1 has finished handelling call number  1 
-2025-04-28 14:20:55 >> Assign call number 3 for Ambulance 
-2025-04-28 14:20:55 >> Ambulance 1  handle call  3
-2025-04-28 14:20:56 >> police Car 1 has finished handelling call number  2 
-2025-04-28 14:20:58 >> Assign call number 4 for Fire 
-2025-04-28 14:20:59 >> Fire 1  handle call  4
-2025-04-28 14:21:01 >> Assign call number 5 for Corona 
-2025-04-28 14:21:02 >> Corona 1  handle call  5
-2025-04-28 14:21:03 >> Ambulance Car 1 has finished handelling call number  3 
-2025-04-28 14:21:05 >> Assign call number 6 for Fire 
-2025-04-28 14:21:05 >> Fire 2  handle call  6
-2025-04-28 14:21:06 >> Assign call number 7 for Fire 
-2025-04-28 14:21:07 >> Fire Car 1 has finished handelling call number  4 
-2025-04-28 14:21:09 >> Fire 1  handle call  7
-2025-04-28 14:21:10 >> Corona Car 1 has finished handelling call number  5 
-2025-04-28 14:21:11 >> Fire Car 2 has finished handelling call number  6 
-2025-04-28 14:21:12 >> Assign call number 8 for Ambulance 
-2025-04-28 14:21:13 >> Assign call number 9 for Corona 
-2025-04-28 14:21:13 >> Ambulance 1  handle call  8
-2025-04-28 14:21:14 >> Assign call number 10 for Fire 
-2025-04-28 14:21:14 >> Corona 1  handle call  9
-2025-04-28 14:21:15 >> Fire 2  handle call  10
-2025-04-28 14:21:17 >> Assign call number 11 for Ambulance 
+2025-06-08 17:53:23 >> Assign call number 1 for Corona 
+2025-06-08 17:53:26 >> Corona 1  handle call  1
+2025-06-08 17:53:27 >> Assign call number 2 for Fire 
+2025-06-08 17:53:27 >> Fire 1  handle call  2
+2025-06-08 17:53:28 >> Assign call number 3 for Corona 
+2025-06-08 17:53:28 >> Corona 2  handle call  3
+2025-06-08 17:53:31 >> Assign call number 4 for Corona 
+2025-06-08 17:53:31 >> Corona 3  handle call  4
+2025-06-08 17:53:34 >> Corona Car 2 has finished handelling call number  3 
+2025-06-08 17:53:35 >> Corona Car 1 has finished handelling call number  1 
+2025-06-08 17:53:36 >> Assign call number 5 for Fire 
+2025-06-08 17:53:37 >> Fire 2  handle call  5
+2025-06-08 17:53:38 >> Fire Car 1 has finished handelling call number  2 
+2025-06-08 17:53:39 >> Corona Car 3 has finished handelling call number  4 
+2025-06-08 17:53:41 >> Assign call number 6 for Corona 
+2025-06-08 17:53:41 >> Corona 1  handle call  6
+2025-06-08 17:53:44 >> Fire Car 2 has finished handelling call number  5 
+2025-06-08 17:53:46 >> Assign call number 7 for Ambulance 
+2025-06-08 17:53:47 >> Ambulance 1  handle call  7
+2025-06-08 17:53:49 >> Corona Car 1 has finished handelling call number  6 
+2025-06-08 17:53:50 >> Assign call number 8 for Corona 
+2025-06-08 17:53:51 >> Corona 1  handle call  8
+2025-06-08 17:53:55 >> Assign call number 9 for Corona 
+2025-06-08 17:53:55 >> Ambulance Car 1 has finished handelling call number  7 
