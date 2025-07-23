@@ -24,7 +24,7 @@ busy_police_cars_t busy_police_cars;
 // struct to hold the data structures for each timer
 TimerDataPolice_t policeTimerData[POLICE_CAR_NUM];
 //  global mutex
-extern SemaphoreHandle_t xMutex;
+extern SemaphoreHandle_t xMutex_log;
 // log queue
 extern QueueHandle_t xQueue_log;
 
@@ -77,9 +77,7 @@ void Task_police(void *pvParameters)
     for (;;)
 
     {
-        if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
-        {
-           
+       
             uint8_t available_car = check_police_cars_busy(&busy_police_cars);
 
             switch (available_car)
@@ -102,10 +100,16 @@ void Task_police(void *pvParameters)
                     printf("%s  handle call  %d\n", car_name, msg_police.call_id);
                     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> %s  handle call  %d\n", car_name, msg_police.call_id);
                     get_time(log_msg.log_time_stamp);
+                    if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
+                    {
                     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
                     {
-                        my_assert(false, "failed to send call to log queue\n");
-                     }
+                        my_assert(false, " Police : failed to send call to log queue\n");
+                    }
+                     // Release the mutex
+                    xSemaphoreGive(xMutex_log);
+                }
+                     
                     policeTimerData[available_car - 1].call_id = msg_police.call_id;
                     int handl_time = getRandomNumber(MIN_POLICE_CALL_HNDL_TIME, MAX_POLICE_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
                     xTimerChangePeriod(xPoliceTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0);                  // set new time for call
@@ -120,14 +124,7 @@ void Task_police(void *pvParameters)
                 }
             }
 
-            // Release the mutex
-               xSemaphoreGive(xMutex);
-        }
-        else
-        {
-           
-         //   printf("failed to get mutex for Task_police\n"); // debug only
-        }
+                  
 
          
         vTaskDelay(pdMS_TO_TICKS(TASK_POLICE_DELAY));
@@ -257,10 +254,17 @@ void vPoliceTimerCallBackFunction(TimerHandle_t xTimer)
     printf("Police Car %d has finished handelling call number  %d \n", carNum, call_id);
     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> police Car %d has finished handelling call number  %d \n", carNum, call_id);
     get_time(log_msg.log_time_stamp);
+    
+     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
+                    {
     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
     {
-        my_assert(false, "failed to send call to log queue\n");
+        my_assert(false, "police : failed to send call to log queue\n");
     }
+      // Release the mutex
+                    xSemaphoreGive(xMutex_log);
+
+}
     set_reset_police_car_busy(&busy_police_cars, carNum, false);
     RST_TXT_CLR;
     

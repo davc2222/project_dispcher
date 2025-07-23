@@ -25,7 +25,7 @@ QueueHandle_t xQueue_ambulance;
 // cars status
 busy_ambulance_cars_t busy_ambulance_cars;
 // global mutex
-extern SemaphoreHandle_t xMutex;
+extern SemaphoreHandle_t xMutex_log;
 // queue
 extern QueueHandle_t xQueue_log;
 
@@ -82,9 +82,6 @@ void Task_ambulance(void *pvParameters)
     
     {
 
-        if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
-        {
-         
             // check for free car
             uint8_t available_car = check_ambulance_cars_busy(&busy_ambulance_cars);
             switch (available_car)
@@ -107,11 +104,16 @@ void Task_ambulance(void *pvParameters)
                     printf("%s  handle call- %d\n", car_name, msg_ambulance.call_id);
                     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> %s  handle call  %d\n", car_name, msg_ambulance.call_id);
                     get_time(log_msg.log_time_stamp);
-                   
+                    
+                    if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
+                    {
                     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
                     {
-                        my_assert(false, "failed to send call to log queue\n");
+                        my_assert(false, " Ambulance : failed to send call to log queue\n");
                     }
+                       // Release the mutex
+                    xSemaphoreGive(xMutex_log);
+                }
                    
                     ambulanceTimerData[available_car - 1].call_id = msg_ambulance.call_id;
                     int handl_time = getRandomNumber(MIN_AMBULANCE_CALL_HNDL_TIME, MAX_AMBULANCE_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
@@ -126,16 +128,9 @@ void Task_ambulance(void *pvParameters)
                 //    printf("There are no calls for ambulance\n"); // debug only
                     break;
                 }
-            }
-
-            // Release the mutex
-            xSemaphoreGive(xMutex);
-        }
-        else
-        {
-         //   printf("failed to get mutex for Task_ambulance\n"); // debug only
-        }
-       
+            }      
+      
+   
         // delay
         vTaskDelay(pdMS_TO_TICKS(TASK_AMBLNCE_DELAY));
     }
@@ -256,10 +251,15 @@ void vAmbulanceTimerCallBackFunction(TimerHandle_t xTimer)
     printf("Ambulance Car %d has finished handelling call number  %d \n", carNum, call_id);
     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> Ambulance Car %d has finished handelling call number  %d \n", carNum, call_id);
     get_time(log_msg.log_time_stamp);
+  if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
+   {
     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
     {
-        my_assert(false, "failed to send call to log queue\n");
+        my_assert(false, " Ambilance Timer : failed to send call to log queue\n");
     }
+                 // Release the mutex
+                    xSemaphoreGive(xMutex_log);
+    }  
     set_reset_ambulance_car_busy(&busy_ambulance_cars, carNum, CAR_AVA);
     // Stop timer at the end (applies to all cases)
     xTimerStop(xTimer, 0);

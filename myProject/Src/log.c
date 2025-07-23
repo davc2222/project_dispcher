@@ -18,7 +18,7 @@ char *time_buffer_p = &time_buffer[0];
 char formatted_message[100];
 const char *log_filename = LOG_FILE_NAME;
 QueueHandle_t xQueue_log;
-extern SemaphoreHandle_t xMutex;
+extern SemaphoreHandle_t xMutex_log;
 
 /**
  * @brief init the log 
@@ -66,8 +66,8 @@ void Task_log(void *pvParameters)
 
     for (;;)
     {
-        if (xSemaphoreTake(xMutex, TASK_LOG_SMFR_DELAY) == pdTRUE)
-        {
+         if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
+                    {
             if (xQueueReceive(xQueue_log, &log_msg, TASKS_RCVQUE_DELAY) == pdPASS)
             {
 
@@ -76,15 +76,12 @@ void Task_log(void *pvParameters)
              
             }
 
+                 // Release the mutex
+                    xSemaphoreGive(xMutex_log);
         }
-        else
-        {
-
-           // printf("failed to get mutex for log task\n"); // debug only
-        }
+    
      
-        // Release the mutex
-        xSemaphoreGive(xMutex);
+     
         vTaskDelay(pdMS_TO_TICKS(1000));
 
     }
@@ -135,6 +132,7 @@ void init_log_file(void)
     snprintf(formatted_message, sizeof(formatted_message), "Log file for 911 calls.created in :============ : %s============\n\n\n", time_buffer_p);
     writeToLog(log_file, formatted_message);
     fflush(log_file); //
+    fclose(log_file);
 }
 
 /// @ write string to file
@@ -162,6 +160,7 @@ void write_call_time_to_log(const char *file_name)
     time_buffer_p = get_time(time_buffer);
     writeToLog(file, time_buffer_p);
     fflush(file);
+    fclose(file);
 }
 
 /**
@@ -179,6 +178,7 @@ void write_call_details_to_log(const char *file_name, const char *desc)
     writeToLog(file, desc);
 
     fflush(file);
+    fclose(file);
 }
 
 /**

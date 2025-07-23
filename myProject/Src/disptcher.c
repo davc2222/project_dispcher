@@ -22,7 +22,7 @@
 // Global var
 int call_id = 0;
 // a global mutex
-extern SemaphoreHandle_t xMutex;
+extern SemaphoreHandle_t xMutex_log;
 
 // Timer handler
 TimerHandle_t xDspthCallTimer;
@@ -65,13 +65,11 @@ void Task_dispcher(void *pvParameters)
     // available car number
     uint8_t available_car = 0;
     char selected_call_type_str[15] = {0};
+      log_msg_call_t log_msg;
 
     for (;;)
     {
 
-        if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
-
-        {
            
             // check if there is call waitting
             if (xQueuePeek(xQueue_dispcher, &call_msg, 100) == pdPASS)
@@ -229,10 +227,9 @@ void Task_dispcher(void *pvParameters)
                 RED_TXT_CLR;
                 printf("Dispacher recievd call number %d\n", call_msg.call_id);
                 RST_TXT_CLR;
-
-                if (xQueueSendToBack(selected_queue, &call_msg, TASKS_SNDQUE_DELAY) != pdPASS)
+                 if (xQueueSendToBack(selected_queue, &call_msg, TASKS_SNDQUE_DELAY) != pdPASS)
                 {
-                    my_assert(false, "failed to send call to log  queue\n");
+                    my_assert(false, " disptcer : failed to send call to log  queue\n");
                 }
                
                 available_car = NO_CAR_AVAILABLE;
@@ -241,8 +238,20 @@ void Task_dispcher(void *pvParameters)
                 // print dispacher messages
                 RED_TXT_CLR;
                 printf("%s", call_msg.call_desc);
-                write_call_time_to_log(LOG_FILE_NAME);
-                write_call_details_to_log(LOG_FILE_NAME, call_msg.call_desc);
+                get_time(log_msg.log_time_stamp);
+  
+                   if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
+                    { 
+                    if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
+                    {
+                        my_assert(false, "failed to send call to log queue\n");
+
+                    }
+                     // Release the mutex
+                   xSemaphoreGive(xMutex_log);
+                    }
+ 
+
                 RST_TXT_CLR;
              //   Remove the call from dispatcher queue , only if successfully assigned
          
@@ -257,15 +266,9 @@ void Task_dispcher(void *pvParameters)
                   //printf(" queue is null\n");//debug only
                   
             }
-        }
-        else
-        {
-
-            // printf("failed to get mutex for Disptcher\n"); // debug only
-        }
+      
+    
        
-        // Release the mutex
-        xSemaphoreGive(xMutex);
          //  delay
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
@@ -317,8 +320,7 @@ void init_dispacher_center(void)
 
 void handle_call_disptcher(void)
 {
-    if (xSemaphoreTake(xMutex, 100) == pdTRUE)
-    {
+  
         // get random call type 
         int call_type_num = getRandomNumber(0, (int)(CALL_TYPE_NUM - 1));
         call_msg_t call_msg;
@@ -333,9 +335,7 @@ void handle_call_disptcher(void)
         {
             my_assert(false, "failed to send call to dispther queue\n");
         }
-    }
-    // Release the mutex
-    xSemaphoreGive(xMutex);
+ 
 }
 
 /**

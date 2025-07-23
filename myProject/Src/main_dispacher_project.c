@@ -18,7 +18,7 @@
 #include "log.h"
 
 // Declare a global mutex
-SemaphoreHandle_t xMutex;
+SemaphoreHandle_t xMutex_log;
 
 int main_dispacher_project(void)
 {
@@ -47,9 +47,9 @@ void init_program(void)
 {
 
   // Create the mutex
-  xMutex = xSemaphoreCreateMutex();
+  xMutex_log = xSemaphoreCreateMutex();
 
-  if (xMutex == NULL)
+  if (xMutex_log == NULL)
   {
     my_assert(false, "failed to create mutex");
   }

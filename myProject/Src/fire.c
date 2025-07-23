@@ -25,7 +25,7 @@ QueueHandle_t xQueue_fire;
 void vFireTimerCallBackFunction(TimerHandle_t xTimer);
 busy_fire_cars_t busy_fire_cars;
 // global mutex
-extern SemaphoreHandle_t xMutex;
+extern SemaphoreHandle_t xMutex_log;
 //  log queue
 extern QueueHandle_t xQueue_log;
 
@@ -78,8 +78,6 @@ void Task_fire(void *pvParameters)
     for (;;)
     {
 
-        if (xSemaphoreTake(xMutex, TASKS_SMFR_DELAY) == pdTRUE)
-        {
             //  printf("Task fire  is using the shared resource\n"); // debug only
             uint8_t available_car = check_fire_cars_busy(&busy_fire_cars);
 
@@ -88,24 +86,33 @@ void Task_fire(void *pvParameters)
 
             case NO_CAR_AVAILABLE:
 
-                //   printf("all fire cars occupied\n");
+               printf("all fire cars occupied\n");
                 break;
-
+ 
             case CAR_1:
             case CAR_2:
                 if (xQueueReceive(xQueue_fire, &msg_fire, TASKS_RCVQUE_DELAY) == pdPASS)
                 {
-                   
                     snprintf(car_name, sizeof(car_name), "Fire %d", available_car);
                     set_reset_fire_car_busy(&busy_fire_cars, available_car, CAR_BUSY);
                     GRN_TXT_CLR;
                     printf("%s  handle call- %d\n", car_name, msg_fire.call_id);
                     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> %s  handle call  %d\n", car_name, msg_fire.call_id);
                     get_time(log_msg.log_time_stamp);
+
+       
+                    if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
+                    {
+
+                    
                     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
                     {
-                        my_assert(false, "failed to send call to log queue\n");
+                        my_assert(false, " Fire : failed to send call to log queue\n");
                     }
+                         // Release the mutex
+                    xSemaphoreGive(xMutex_log);
+                }
+                 
                     fireTimerData[available_car - 1].call_id = msg_fire.call_id;
                     int handl_time = getRandomNumber(MIN_FIRE_CALL_HNDL_TIME, MAX_FIRE_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
                     xTimerChangePeriod(xFireTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0);          // set new time for call
@@ -120,16 +127,8 @@ void Task_fire(void *pvParameters)
                 }
             }
 
-            // Release the mutex
-            xSemaphoreGive(xMutex);
-        }
-        else
-        {
-
-            RST_TXT_CLR;
-            // printf("failed to get mutex for Task_fire\n"); // debug only
-        }
-
+           
+    
         // delay
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
@@ -246,10 +245,15 @@ void vFireTimerCallBackFunction(TimerHandle_t xTimer)
     printf("Fire Car %d has finished handelling call number  %d \n", carNum, call_id);
     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> Fire Car %d has finished handelling call number  %d \n", carNum, call_id);
     get_time(log_msg.log_time_stamp);
+    if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
+   {
     if (xQueueSendToBack(xQueue_log, &log_msg, TASKS_SNDQUE_DELAY) != pdPASS)
     {
-        my_assert(false, "failed to send call to log queue\n");
+        my_assert(false, " Fire Timer  : failed to send call to log queue\n");
     }
+                 // Release the mutex
+                    xSemaphoreGive(xMutex_log);
+    }  
     set_reset_fire_car_busy(&busy_fire_cars, carNum, CAR_AVA);
     RST_TXT_CLR;
     xTimerStop(xTimer, 0);
