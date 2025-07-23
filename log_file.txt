@@ -4530,3 +4530,741 @@
 2025-07-23 11:41:54 >> Ambulance Car 1 has finished handelling call number  2263 
 2025-07-23 11:41:552025-07-23 11:41:56 >> Police 1  handle call  2265
 2025-07-23 11:41:582025-07-23 11:41:59 >> Corona 1  handle call  2266
+2025-07-23 11:42:01 >> police Car 1 has finished handelling call number  2265 
+2025-07-23 11:42:012025-07-23 11:42:02 >> Police 1  handle call  2267
+2025-07-23 11:42:03 >> Fire Car 1 has finished handelling call number  2264 
+2025-07-23 11:42:04 >> Corona Car 1 has finished handelling call number  2266 
+2025-07-23 11:42:052025-07-23 11:42:06 >> Fire 1  handle call  2268
+2025-07-23 11:42:07 >> police Car 1 has finished handelling call number  2267 
+2025-07-23 11:42:102025-07-23 11:42:11 >> Police 1  handle call  2269
+2025-07-23 11:42:12 >> Fire Car 1 has finished handelling call number  2268 
+2025-07-23 11:42:132025-07-23 11:42:14 >> Corona 1  handle call  2270
+2025-07-23 11:42:162025-07-23 11:42:17 >> Fire 1  handle call  2271
+2025-07-23 11:42:18 >> Corona Car 1 has finished handelling call number  2270 
+2025-07-23 11:42:192025-07-23 11:42:20 >> police Car 1 has finished handelling call number  2269 
+2025-07-23 11:42:21 >> Fire 2  handle call  2272
+2025-07-23 11:42:232025-07-23 11:42:24 >> Ambulance 1  handle call  2273
+2025-07-23 11:42:252025-07-23 11:42:26 >> Fire Car 1 has finished handelling call number  2271 
+2025-07-23 11:42:27 >> Fire 1  handle call  2274
+2025-07-23 11:42:282025-07-23 11:42:29 >> Fire Car 2 has finished handelling call number  2272 
+2025-07-23 11:42:30 >> Police 1  handle call  2275
+2025-07-23 11:42:312025-07-23 11:42:31 >> Ambulance 2  handle call  2276
+2025-07-23 11:42:322025-07-23 11:42:33 >> Corona 1  handle call  2277
+2025-07-23 11:42:34 >> Ambulance Car 1 has finished handelling call number  2273 
+2025-07-23 11:42:35 >> Fire Car 1 has finished handelling call number  2274 
+2025-07-23 11:42:36 >> police Car 1 has finished handelling call number  2275 
+2025-07-23 11:42:37 >> Ambulance Car 2 has finished handelling call number  2276 
+2025-07-23 11:42:382025-07-23 11:42:39 >> Police 1  handle call  2278
+2025-07-23 11:42:402025-07-23 11:42:41 >> Corona 2  handle call  2279
+2025-07-23 11:42:42 >> Corona Car 1 has finished handelling call number  2277 
+2025-07-23 11:42:432025-07-23 11:42:44 >> Police 2  handle call  2280
+2025-07-23 11:42:45 >> police Car 1 has finished handelling call number  2278 
+2025-07-23 11:42:462025-07-23 11:42:47 >> Corona 1  handle call  2281
+2025-07-23 11:42:48 >> Corona Car 2 has finished handelling call number  2279 
+2025-07-23 11:42:49 >> police Car 2 has finished handelling call number  2280 
+2025-07-23 11:42:502025-07-23 11:42:51 >> Fire 1  handle call  2282
+2025-07-23 11:42:522025-07-23 11:42:53 >> Ambulance 1  handle call  2283
+2025-07-23 11:42:54 >> Corona Car 1 has finished handelling call number  2281 
+2025-07-23 11:42:552025-07-23 11:42:56 >> Corona 1  handle call  2284
+2025-07-23 11:43:01 >> Corona Car 1 has finished handelling call number  2284 
+2025-07-23 11:43:022025-07-23 11:43:03 >> Fire Car 1 has finished handelling call number  2282 
+2025-07-23 11:43:03 >> Ambulance 2  handle call  2285
+2025-07-23 11:43:04 >> Ambulance Car 1 has finished handelling call number  2283 
+2025-07-23 11:43:052025-07-23 11:43:06 >> Police 1  handle call  2286
+2025-07-23 11:43:072025-07-23 11:43:08 >> Corona 1  handle call  2287
+2025-07-23 11:43:09 >> Ambulance Car 2 has finished handelling call number  2285 
+2025-07-23 11:43:102025-07-23 11:43:11 >> Fire 1  handle call  2288
+2025-07-23 11:43:122025-07-23 11:43:13 >> Ambulance 1  handle call  2289
+2025-07-23 11:43:14 >> Corona Car 1 has finished handelling call number  2287 
+2025-07-23 11:43:152025-07-23 11:43:16 >> police Car 1 has finished handelling call number  2286 
+2025-07-23 11:43:17 >> Ambulance 2  handle call  2290
+2025-07-23 11:43:182025-07-23 11:43:19 >> Police 1  handle call  2291
+2025-07-23 11:43:20 >> Fire Car 1 has finished handelling call number  2288 
+2025-07-23 11:43:21 >> Ambulance Car 1 has finished handelling call number  2289 
+2025-07-23 11:43:222025-07-23 11:43:23 >> Fire 1  handle call  2292
+2025-07-23 11:43:24 >> Ambulance Car 2 has finished handelling call number  2290 
+2025-07-23 11:43:252025-07-23 11:43:26 >> Fire 2  handle call  2293
+2025-07-23 11:43:27 >> police Car 1 has finished handelling call number  2291 
+2025-07-23 11:43:28 >> Fire Car 1 has finished handelling call number  2292 
+2025-07-23 11:43:292025-07-23 11:43:30 >> Ambulance 1  handle call  2294
+2025-07-23 11:43:312025-07-23 11:43:32 >> Fire 1  handle call  2295
+2025-07-23 11:43:33 >> Fire Car 2 has finished handelling call number  2293 
+2025-07-23 11:43:342025-07-23 11:43:35 >> Ambulance 2  handle call  2296
+2025-07-23 11:43:35 >> Ambulance Car 1 has finished handelling call number  2294 
+2025-07-23 11:43:362025-07-23 11:43:37 >> Fire 2  handle call  2297
+2025-07-23 11:43:38 >> Fire Car 1 has finished handelling call number  2295 
+2025-07-23 11:43:40 >> Ambulance Car 2 has finished handelling call number  2296 
+2025-07-23 11:43:412025-07-23 11:43:42 >> Ambulance 1  handle call  2298
+2025-07-23 11:43:44 >> Fire Car 2 has finished handelling call number  2297 
+2025-07-23 11:43:452025-07-23 11:43:46 >> Corona 1  handle call  2299
+2025-07-23 11:43:482025-07-23 11:43:49 >> Police 1  handle call  2300
+2025-07-23 11:43:502025-07-23 11:43:51 >> Ambulance 2  handle call  2301
+2025-07-23 11:43:52 >> Ambulance Car 1 has finished handelling call number  2298 
+2025-07-23 11:43:53 >> Corona Car 1 has finished handelling call number  2299 
+2025-07-23 11:43:542025-07-23 11:43:55 >> Fire 1  handle call  2302
+2025-07-23 11:43:56 >> police Car 1 has finished handelling call number  2300 
+2025-07-23 11:43:572025-07-23 11:43:58 >> Corona 1  handle call  2303
+2025-07-23 11:43:592025-07-23 11:44:00 >> Police 1  handle call  2304
+2025-07-23 11:44:01 >> Ambulance Car 2 has finished handelling call number  2301 
+2025-07-23 11:44:02 >> Fire Car 1 has finished handelling call number  2302 
+2025-07-23 11:44:032025-07-23 11:44:04 >> Corona 2  handle call  2305
+2025-07-23 11:44:052025-07-23 11:44:06 >> Ambulance 1  handle call  2306
+2025-07-23 11:44:062025-07-23 11:44:07 >> Police 2  handle call  2307
+2025-07-23 11:44:08 >> Corona Car 1 has finished handelling call number  2303 
+2025-07-23 11:44:09 >> police Car 1 has finished handelling call number  2304 
+2025-07-23 11:44:102025-07-23 11:44:11 >> Corona 1  handle call  2308
+2025-07-23 11:44:122025-07-23 11:44:13 >> Corona 3  handle call  2309
+2025-07-23 11:44:14 >> police Car 2 has finished handelling call number  2307 
+2025-07-23 11:44:15 >> Ambulance Car 1 has finished handelling call number  2306 
+2025-07-23 11:44:16 >> Corona Car 2 has finished handelling call number  2305 
+2025-07-23 11:44:172025-07-23 11:44:18 >> Fire 1  handle call  2310
+2025-07-23 11:44:19 >> Corona Car 1 has finished handelling call number  2308 
+2025-07-23 11:44:202025-07-23 11:44:21 >> Corona 1  handle call  2311
+2025-07-23 11:44:22 >> Corona Car 3 has finished handelling call number  2309 
+2025-07-23 11:44:232025-07-23 11:44:24 >> Corona 2  handle call  2312
+2025-07-23 11:44:25 >> Fire Car 1 has finished handelling call number  2310 
+2025-07-23 11:44:262025-07-23 11:44:27 >> Fire 1  handle call  2313
+2025-07-23 11:44:28 >> Corona Car 1 has finished handelling call number  2311 
+2025-07-23 11:44:292025-07-23 11:44:30 >> Corona 1  handle call  2314
+2025-07-23 11:44:31 >> Corona Car 2 has finished handelling call number  2312 
+2025-07-23 11:44:32 >> Fire Car 1 has finished handelling call number  2313 
+2025-07-23 11:44:332025-07-23 11:44:34 >> Police 1  handle call  2315
+2025-07-23 11:44:35 >> Corona Car 1 has finished handelling call number  2314 
+2025-07-23 11:44:362025-07-23 11:44:37 >> Fire 1  handle call  2316
+2025-07-23 11:44:37 >> police Car 1 has finished handelling call number  2315 
+2025-07-23 11:44:382025-07-23 11:44:39 >> Fire 2  handle call  2317
+2025-07-23 11:44:402025-07-23 11:44:41 >> Corona 1  handle call  2318
+2025-07-23 11:44:422025-07-23 11:44:43 >> Fire Car 1 has finished handelling call number  2316 
+2025-07-23 11:44:442025-07-23 11:44:45 >> Fire 1  handle call  2319
+2025-07-23 11:44:46 >> Ambulance 1  handle call  2320
+2025-07-23 11:44:472025-07-23 11:44:48 >> Police 1  handle call  2321
+2025-07-23 11:44:492025-07-23 11:44:50 >> Ambulance 2  handle call  2322
+2025-07-23 11:44:512025-07-23 11:44:52 >> Fire Car 2 has finished handelling call number  2317 
+2025-07-23 11:44:53 >> Corona 2  handle call  2323
+2025-07-23 11:44:54 >> Corona Car 1 has finished handelling call number  2318 
+2025-07-23 11:44:55 >> police Car 1 has finished handelling call number  2321 
+2025-07-23 11:44:562025-07-23 11:44:57 >> Ambulance 3  handle call  2324
+2025-07-23 11:44:58 >> Fire Car 1 has finished handelling call number  2319 
+2025-07-23 11:44:59 >> Corona Car 2 has finished handelling call number  2323 
+2025-07-23 11:45:00 >> Ambulance Car 2 has finished handelling call number  2322 
+2025-07-23 11:45:01 >> Ambulance Car 1 has finished handelling call number  2320 
+2025-07-23 11:45:02 >> Ambulance Car 3 has finished handelling call number  2324 
+2025-07-23 11:45:032025-07-23 11:45:04 >> Corona 1  handle call  2325
+2025-07-23 11:45:052025-07-23 11:45:06 >> Corona 2  handle call  2326
+2025-07-23 11:45:072025-07-23 11:45:08 >> Police 1  handle call  2327
+2025-07-23 11:45:08 >> Corona Car 1 has finished handelling call number  2325 
+2025-07-23 11:45:092025-07-23 11:45:10 >> Corona 1  handle call  2328
+2025-07-23 11:45:11 >> Corona Car 2 has finished handelling call number  2326 
+2025-07-23 11:45:12 >> police Car 1 has finished handelling call number  2327 
+2025-07-23 11:45:132025-07-23 11:45:14 >> Ambulance 1  handle call  2329
+2025-07-23 11:45:152025-07-23 11:45:16 >> Police 1  handle call  2330
+2025-07-23 11:45:172025-07-23 11:45:18 >> Corona Car 1 has finished handelling call number  2328 
+2025-07-23 11:45:19 >> Fire 1  handle call  2331
+2025-07-23 11:45:202025-07-23 11:45:21 >> Fire 2  handle call  2332
+2025-07-23 11:45:22 >> Ambulance Car 1 has finished handelling call number  2329 
+2025-07-23 11:45:23 >> police Car 1 has finished handelling call number  2330 
+2025-07-23 11:45:242025-07-23 11:45:25 >> Ambulance 1  handle call  2333
+2025-07-23 11:45:26 >> Fire Car 1 has finished handelling call number  2331 
+2025-07-23 11:45:272025-07-23 11:45:28 >> Ambulance 2  handle call  2334
+2025-07-23 11:45:29 >> Fire Car 2 has finished handelling call number  2332 
+2025-07-23 11:45:302025-07-23 11:45:31 >> Fire 1  handle call  2335
+2025-07-23 11:45:32 >> Ambulance Car 1 has finished handelling call number  2333 
+2025-07-23 11:45:332025-07-23 11:45:34 >> Ambulance Car 2 has finished handelling call number  2334 
+2025-07-23 11:45:35 >> Ambulance 1  handle call  2336
+2025-07-23 11:45:362025-07-23 11:45:37 >> Fire 2  handle call  2337
+2025-07-23 11:45:382025-07-23 11:45:39 >> Police 1  handle call  2338
+2025-07-23 11:45:392025-07-23 11:45:40 >> Police 2  handle call  2339
+2025-07-23 11:45:41 >> Fire Car 1 has finished handelling call number  2335 
+2025-07-23 11:45:42 >> Ambulance Car 1 has finished handelling call number  2336 
+2025-07-23 11:45:43 >> police Car 1 has finished handelling call number  2338 
+2025-07-23 11:45:442025-07-23 11:45:45 >> Police 1  handle call  2340
+2025-07-23 11:45:46 >> Fire Car 2 has finished handelling call number  2337 
+2025-07-23 11:45:47 >> police Car 2 has finished handelling call number  2339 
+2025-07-23 11:45:482025-07-23 11:45:49 >> Fire 1  handle call  2341
+2025-07-23 11:45:50 >> police Car 1 has finished handelling call number  2340 
+2025-07-23 11:45:512025-07-23 11:45:52 >> Corona 1  handle call  2342
+2025-07-23 11:45:532025-07-23 11:45:54 >> Police 1  handle call  2343
+2025-07-23 11:45:55 >> Fire Car 1 has finished handelling call number  2341 
+2025-07-23 11:45:562025-07-23 11:45:57 >> Ambulance 1  handle call  2344
+2025-07-23 11:45:582025-07-23 11:45:59 >> Ambulance 2  handle call  2345
+2025-07-23 11:46:00 >> police Car 1 has finished handelling call number  2343 
+2025-07-23 11:46:012025-07-23 11:46:02 >> Corona 2  handle call  2346
+2025-07-23 11:46:03 >> Corona Car 1 has finished handelling call number  2342 
+2025-07-23 11:46:04 >> Ambulance Car 1 has finished handelling call number  2344 
+2025-07-23 11:46:052025-07-23 11:46:06 >> Fire 1  handle call  2347
+2025-07-23 11:46:07 >> Ambulance Car 2 has finished handelling call number  2345 
+2025-07-23 11:46:082025-07-23 11:46:09 >> Police 1  handle call  2348
+2025-07-23 11:46:10 >> Fire Car 1 has finished handelling call number  2347 
+2025-07-23 11:46:11 >> Corona Car 2 has finished handelling call number  2346 
+2025-07-23 11:46:112025-07-23 11:46:12 >> Fire 1  handle call  2349
+2025-07-23 11:46:132025-07-23 11:46:14 >> Fire 2  handle call  2350
+2025-07-23 11:46:152025-07-23 11:46:16 >> Police 2  handle call  2351
+2025-07-23 11:46:17 >> police Car 1 has finished handelling call number  2348 
+2025-07-23 11:46:182025-07-23 11:46:19 >> Ambulance 1  handle call  2352
+2025-07-23 11:46:20 >> Fire Car 1 has finished handelling call number  2349 
+2025-07-23 11:46:212025-07-23 11:46:22 >> Fire 1  handle call  2353
+2025-07-23 11:46:23 >> Fire Car 2 has finished handelling call number  2350 
+2025-07-23 11:46:24 >> police Car 2 has finished handelling call number  2351 
+2025-07-23 11:46:252025-07-23 11:46:26 >> Ambulance Car 1 has finished handelling call number  2352 
+2025-07-23 11:46:27 >> Police 1  handle call  2354
+2025-07-23 11:46:282025-07-23 11:46:29 >> Fire Car 1 has finished handelling call number  2353 
+2025-07-23 11:46:30 >> Fire 1  handle call  2355
+2025-07-23 11:46:312025-07-23 11:46:32 >> Ambulance 1  handle call  2356
+2025-07-23 11:46:33 >> Fire Car 1 has finished handelling call number  2355 
+2025-07-23 11:46:342025-07-23 11:46:35 >> police Car 1 has finished handelling call number  2354 
+2025-07-23 11:46:36 >> Corona 1  handle call  2357
+2025-07-23 11:46:37 >> Ambulance Car 1 has finished handelling call number  2356 
+2025-07-23 11:46:382025-07-23 11:46:39 >> Police 1  handle call  2358
+2025-07-23 11:46:402025-07-23 11:46:41 >> Police 2  handle call  2359
+2025-07-23 11:46:422025-07-23 11:46:42 >> Police 3  handle call  2360
+2025-07-23 11:46:432025-07-23 11:46:44 >> Corona 2  handle call  2361
+2025-07-23 11:46:45 >> Corona Car 1 has finished handelling call number  2357 
+2025-07-23 11:46:46 >> police Car 1 has finished handelling call number  2358 
+2025-07-23 11:46:472025-07-23 11:46:48 >> Fire 1  handle call  2362
+2025-07-23 11:46:49 >> police Car 2 has finished handelling call number  2359 
+2025-07-23 11:46:502025-07-23 11:46:51 >> Ambulance 1  handle call  2363
+2025-07-23 11:46:52 >> police Car 3 has finished handelling call number  2360 
+2025-07-23 11:46:532025-07-23 11:46:54 >> Ambulance 2  handle call  2364
+2025-07-23 11:46:55 >> Corona Car 2 has finished handelling call number  2361 
+2025-07-23 11:46:56 >> Fire Car 1 has finished handelling call number  2362 
+2025-07-23 11:46:572025-07-23 11:46:58 >> Fire 1  handle call  2365
+2025-07-23 11:46:59 >> Ambulance Car 1 has finished handelling call number  2363 
+2025-07-23 11:47:002025-07-23 11:47:01 >> Corona 1  handle call  2366
+2025-07-23 11:47:022025-07-23 11:47:03 >> Ambulance 1  handle call  2367
+2025-07-23 11:47:04 >> Ambulance Car 2 has finished handelling call number  2364 
+2025-07-23 11:47:05 >> Fire Car 1 has finished handelling call number  2365 
+2025-07-23 11:47:062025-07-23 11:47:07 >> Corona Car 1 has finished handelling call number  2366 
+2025-07-23 11:47:08 >> Fire 1  handle call  2368
+2025-07-23 11:47:092025-07-23 11:47:10 >> Police 1  handle call  2369
+2025-07-23 11:47:11 >> Ambulance Car 1 has finished handelling call number  2367 
+2025-07-23 11:47:122025-07-23 11:47:13 >> Fire 2  handle call  2370
+2025-07-23 11:47:13 >> Fire Car 1 has finished handelling call number  2368 
+2025-07-23 11:47:14 >> police Car 1 has finished handelling call number  2369 
+2025-07-23 11:47:152025-07-23 11:47:16 >> Fire 1  handle call  2371
+2025-07-23 11:47:172025-07-23 11:47:18 >> Corona 1  handle call  2372
+2025-07-23 11:47:192025-07-23 11:47:20 >> Fire Car 2 has finished handelling call number  2370 
+2025-07-23 11:47:21 >> Fire 2  handle call  2373
+2025-07-23 11:47:222025-07-23 11:47:23 >> Fire Car 1 has finished handelling call number  2371 
+2025-07-23 11:47:24 >> Fire 1  handle call  2374
+2025-07-23 11:47:25 >> Corona Car 1 has finished handelling call number  2372 
+2025-07-23 11:47:26 >> Fire Car 2 has finished handelling call number  2373 
+2025-07-23 11:47:272025-07-23 11:47:28 >> Ambulance 1  handle call  2375
+2025-07-23 11:47:29 >> Fire Car 1 has finished handelling call number  2374 
+2025-07-23 11:47:302025-07-23 11:47:31 >> Police 1  handle call  2376
+2025-07-23 11:47:322025-07-23 11:47:33 >> Fire 1  handle call  2377
+2025-07-23 11:47:342025-07-23 11:47:35 >> Ambulance 2  handle call  2378
+2025-07-23 11:47:36 >> Ambulance Car 1 has finished handelling call number  2375 
+2025-07-23 11:47:372025-07-23 11:47:38 >> Ambulance 1  handle call  2379
+2025-07-23 11:47:39 >> Fire Car 1 has finished handelling call number  2377 
+2025-07-23 11:47:40 >> police Car 1 has finished handelling call number  2376 
+2025-07-23 11:47:412025-07-23 11:47:42 >> Ambulance 3  handle call  2380
+2025-07-23 11:47:432025-07-23 11:47:44 >> Ambulance Car 2 has finished handelling call number  2378 
+2025-07-23 11:47:44 >> Corona 1  handle call  2381
+2025-07-23 11:47:45 >> Ambulance Car 1 has finished handelling call number  2379 
+2025-07-23 11:47:462025-07-23 11:47:47 >> Fire 1  handle call  2382
+2025-07-23 11:47:48 >> Ambulance Car 3 has finished handelling call number  2380 
+2025-07-23 11:47:49 >> Corona Car 1 has finished handelling call number  2381 
+2025-07-23 11:47:502025-07-23 11:47:51 >> Corona 1  handle call  2383
+2025-07-23 11:47:52 >> Fire Car 1 has finished handelling call number  2382 
+2025-07-23 11:47:532025-07-23 11:47:54 >> Fire 1  handle call  2384
+2025-07-23 11:47:552025-07-23 11:47:56 >> Corona Car 1 has finished handelling call number  2383 
+2025-07-23 11:47:57 >> Ambulance 1  handle call  2385
+2025-07-23 11:47:58 >> Fire Car 1 has finished handelling call number  2384 
+2025-07-23 11:47:592025-07-23 11:48:00 >> Police 1  handle call  2386
+2025-07-23 11:48:012025-07-23 11:48:02 >> Ambulance Car 1 has finished handelling call number  2385 
+2025-07-23 11:48:03 >> Police 2  handle call  2387
+2025-07-23 11:48:042025-07-23 11:48:05 >> Corona 1  handle call  2388
+2025-07-23 11:48:062025-07-23 11:48:07 >> police Car 1 has finished handelling call number  2386 
+2025-07-23 11:48:08 >> Fire 1  handle call  2389
+2025-07-23 11:48:092025-07-23 11:48:10 >> Ambulance 1  handle call  2390
+2025-07-23 11:48:112025-07-23 11:48:12 >> police Car 2 has finished handelling call number  2387 
+2025-07-23 11:48:13 >> Fire 2  handle call  2391
+2025-07-23 11:48:14 >> Corona Car 1 has finished handelling call number  2388 
+2025-07-23 11:48:152025-07-23 11:48:15 >> Ambulance Car 1 has finished handelling call number  2390 
+2025-07-23 11:48:162025-07-23 11:48:17 >> Fire Car 1 has finished handelling call number  2389 
+2025-07-23 11:48:18 >> Fire 1  handle call  2392
+2025-07-23 11:48:19 >> Fire Car 2 has finished handelling call number  2391 
+2025-07-23 11:48:20 >> Fire 2  handle call  2393
+2025-07-23 11:48:212025-07-23 11:48:22 >> Corona 1  handle call  2394
+2025-07-23 11:48:232025-07-23 11:48:24 >> Police 1  handle call  2395
+2025-07-23 11:48:252025-07-23 11:48:26 >> Fire Car 2 has finished handelling call number  2393 
+2025-07-23 11:48:27 >> Corona 2  handle call  2396
+2025-07-23 11:48:28 >> Fire Car 1 has finished handelling call number  2392 
+2025-07-23 11:48:29 >> police Car 1 has finished handelling call number  2395 
+2025-07-23 11:48:30 >> Corona Car 1 has finished handelling call number  2394 
+2025-07-23 11:48:312025-07-23 11:48:32 >> Police 1  handle call  2397
+2025-07-23 11:48:33 >> Corona Car 2 has finished handelling call number  2396 
+2025-07-23 11:48:342025-07-23 11:48:35 >> Police 2  handle call  2398
+2025-07-23 11:48:36 >> police Car 1 has finished handelling call number  2397 
+2025-07-23 11:48:372025-07-23 11:48:38 >> Ambulance 1  handle call  2399
+2025-07-23 11:48:39 >> police Car 2 has finished handelling call number  2398 
+2025-07-23 11:48:402025-07-23 11:48:41 >> Fire 1  handle call  2400
+2025-07-23 11:48:42 >> Ambulance Car 1 has finished handelling call number  2399 
+2025-07-23 11:48:432025-07-23 11:48:44 >> Police 1  handle call  2401
+2025-07-23 11:48:452025-07-23 11:48:46 >> Fire Car 1 has finished handelling call number  2400 
+2025-07-23 11:48:47 >> Corona 1  handle call  2402
+2025-07-23 11:48:472025-07-23 11:48:48 >> Ambulance 1  handle call  2403
+2025-07-23 11:48:492025-07-23 11:48:50 >> Ambulance 2  handle call  2404
+2025-07-23 11:48:512025-07-23 11:48:52 >> Corona 2  handle call  2405
+2025-07-23 11:48:53 >> police Car 1 has finished handelling call number  2401 
+2025-07-23 11:48:542025-07-23 11:48:55 >> Corona 3  handle call  2406
+2025-07-23 11:48:56 >> Corona Car 1 has finished handelling call number  2402 
+2025-07-23 11:48:57 >> Ambulance Car 1 has finished handelling call number  2403 
+2025-07-23 11:48:582025-07-23 11:48:59 >> Ambulance Car 2 has finished handelling call number  2404 
+2025-07-23 11:49:00 >> Corona 1  handle call  2407
+2025-07-23 11:49:012025-07-23 11:49:02 >> Corona Car 2 has finished handelling call number  2405 
+2025-07-23 11:49:03 >> Ambulance 1  handle call  2408
+2025-07-23 11:49:042025-07-23 11:49:05 >> Corona 2  handle call  2409
+2025-07-23 11:49:06 >> Corona Car 3 has finished handelling call number  2406 
+2025-07-23 11:49:072025-07-23 11:49:08 >> Fire 1  handle call  2410
+2025-07-23 11:49:09 >> Corona Car 1 has finished handelling call number  2407 
+2025-07-23 11:49:102025-07-23 11:49:11 >> Police 1  handle call  2411
+2025-07-23 11:49:122025-07-23 11:49:13 >> Fire 2  handle call  2412
+2025-07-23 11:49:14 >> Ambulance Car 1 has finished handelling call number  2408 
+2025-07-23 11:49:15 >> Corona Car 2 has finished handelling call number  2409 
+2025-07-23 11:49:16 >> Fire Car 1 has finished handelling call number  2410 
+2025-07-23 11:49:172025-07-23 11:49:18 >> Ambulance 1  handle call  2413
+2025-07-23 11:49:18 >> Fire Car 2 has finished handelling call number  2412 
+2025-07-23 11:49:192025-07-23 11:49:20 >> Corona 1  handle call  2414
+2025-07-23 11:49:21 >> police Car 1 has finished handelling call number  2411 
+2025-07-23 11:49:22 >> Ambulance Car 1 has finished handelling call number  2413 
+2025-07-23 11:49:232025-07-23 11:49:24 >> Ambulance 1  handle call  2415
+2025-07-23 11:49:252025-07-23 11:49:26 >> Fire 1  handle call  2416
+2025-07-23 11:49:272025-07-23 11:49:28 >> Corona Car 1 has finished handelling call number  2414 
+2025-07-23 11:49:29 >> Fire 2  handle call  2417
+2025-07-23 11:49:302025-07-23 11:49:31 >> Ambulance 2  handle call  2418
+2025-07-23 11:49:32 >> Fire Car 1 has finished handelling call number  2416 
+2025-07-23 11:49:33 >> Ambulance Car 1 has finished handelling call number  2415 
+2025-07-23 11:49:342025-07-23 11:49:35 >> Fire 1  handle call  2419
+2025-07-23 11:49:362025-07-23 11:49:37 >> Corona 1  handle call  2420
+2025-07-23 11:49:38 >> Fire Car 2 has finished handelling call number  2417 
+2025-07-23 11:49:39 >> Ambulance Car 2 has finished handelling call number  2418 
+2025-07-23 11:49:402025-07-23 11:49:41 >> Fire 2  handle call  2421
+2025-07-23 11:49:42 >> Corona Car 1 has finished handelling call number  2420 
+2025-07-23 11:49:43 >> Fire Car 1 has finished handelling call number  2419 
+2025-07-23 11:49:442025-07-23 11:49:45 >> Police 1  handle call  2422
+2025-07-23 11:49:46 >> Fire Car 2 has finished handelling call number  2421 
+2025-07-23 11:49:472025-07-23 11:49:48 >> Police 2  handle call  2423
+2025-07-23 11:49:492025-07-23 11:49:49 >> Corona 1  handle call  2424
+2025-07-23 11:49:50 >> police Car 1 has finished handelling call number  2422 
+2025-07-23 11:49:512025-07-23 11:49:52 >> Corona 2  handle call  2425
+2025-07-23 11:49:53 >> police Car 2 has finished handelling call number  2423 
+2025-07-23 11:49:542025-07-23 11:49:55 >> Corona 3  handle call  2426
+2025-07-23 11:49:56 >> Corona Car 1 has finished handelling call number  2424 
+2025-07-23 11:49:572025-07-23 11:49:58 >> Ambulance 1  handle call  2427
+2025-07-23 11:49:592025-07-23 11:50:00 >> Corona 1  handle call  2428
+2025-07-23 11:50:01 >> Corona Car 2 has finished handelling call number  2425 
+2025-07-23 11:50:022025-07-23 11:50:03 >> Corona Car 3 has finished handelling call number  2426 
+2025-07-23 11:50:04 >> Ambulance 2  handle call  2429
+2025-07-23 11:50:052025-07-23 11:50:06 >> Ambulance 3  handle call  2430
+2025-07-23 11:50:07 >> Ambulance Car 1 has finished handelling call number  2427 
+2025-07-23 11:50:08 >> Ambulance Car 2 has finished handelling call number  2429 
+2025-07-23 11:50:09 >> Corona Car 1 has finished handelling call number  2428 
+2025-07-23 11:50:102025-07-23 11:50:11 >> Ambulance 1  handle call  2431
+2025-07-23 11:50:122025-07-23 11:50:13 >> Corona 1  handle call  2432
+2025-07-23 11:50:142025-07-23 11:50:15 >> Corona 2  handle call  2433
+2025-07-23 11:50:16 >> Ambulance Car 3 has finished handelling call number  2430 
+2025-07-23 11:50:172025-07-23 11:50:18 >> Fire 1  handle call  2434
+2025-07-23 11:50:19 >> Ambulance Car 1 has finished handelling call number  2431 
+2025-07-23 11:50:202025-07-23 11:50:20 >> Corona 3  handle call  2435
+2025-07-23 11:50:21 >> Corona Car 1 has finished handelling call number  2432 
+2025-07-23 11:50:22 >> Corona Car 2 has finished handelling call number  2433 
+2025-07-23 11:50:23 >> Fire Car 1 has finished handelling call number  2434 
+2025-07-23 11:50:242025-07-23 11:50:25 >> Police 1  handle call  2436
+2025-07-23 11:50:262025-07-23 11:50:27 >> Ambulance 1  handle call  2437
+2025-07-23 11:50:28 >> Corona Car 3 has finished handelling call number  2435 
+2025-07-23 11:50:292025-07-23 11:50:30 >> Ambulance 2  handle call  2438
+2025-07-23 11:50:312025-07-23 11:50:32 >> police Car 1 has finished handelling call number  2436 
+2025-07-23 11:50:33 >> Ambulance 3  handle call  2439
+2025-07-23 11:50:34 >> Ambulance Car 1 has finished handelling call number  2437 
+2025-07-23 11:50:352025-07-23 11:50:36 >> Fire 1  handle call  2440
+2025-07-23 11:50:37 >> Ambulance Car 2 has finished handelling call number  2438 
+2025-07-23 11:50:382025-07-23 11:50:39 >> Ambulance 1  handle call  2441
+2025-07-23 11:50:40 >> Ambulance Car 3 has finished handelling call number  2439 
+2025-07-23 11:50:41 >> Fire Car 1 has finished handelling call number  2440 
+2025-07-23 11:50:422025-07-23 11:50:43 >> Fire 1  handle call  2442
+2025-07-23 11:50:442025-07-23 11:50:45 >> Ambulance 2  handle call  2443
+2025-07-23 11:50:46 >> Ambulance Car 1 has finished handelling call number  2441 
+2025-07-23 11:50:472025-07-23 11:50:48 >> Fire Car 1 has finished handelling call number  2442 
+2025-07-23 11:50:49 >> Corona 1  handle call  2444
+2025-07-23 11:50:502025-07-23 11:50:51 >> Police 1  handle call  2445
+2025-07-23 11:50:522025-07-23 11:50:52 >> Corona 2  handle call  2446
+2025-07-23 11:50:532025-07-23 11:50:54 >> Police 2  handle call  2447
+2025-07-23 11:50:552025-07-23 11:50:56 >> Fire 1  handle call  2448
+2025-07-23 11:50:57 >> Ambulance Car 2 has finished handelling call number  2443 
+2025-07-23 11:50:58 >> Corona Car 1 has finished handelling call number  2444 
+2025-07-23 11:50:592025-07-23 11:51:00 >> Fire 2  handle call  2449
+2025-07-23 11:51:01 >> police Car 1 has finished handelling call number  2445 
+2025-07-23 11:51:02 >> Fire Car 1 has finished handelling call number  2448 
+2025-07-23 11:51:03 >> police Car 2 has finished handelling call number  2447 
+2025-07-23 11:51:042025-07-23 11:51:05 >> Corona 1  handle call  2450
+2025-07-23 11:51:06 >> Corona Car 2 has finished handelling call number  2446 
+2025-07-23 11:51:07 >> Fire Car 2 has finished handelling call number  2449 
+2025-07-23 11:51:082025-07-23 11:51:09 >> Corona 2  handle call  2451
+2025-07-23 11:51:102025-07-23 11:51:11 >> Fire 1  handle call  2452
+2025-07-23 11:51:12 >> Corona Car 1 has finished handelling call number  2450 
+2025-07-23 11:51:132025-07-23 11:51:14 >> Fire 2  handle call  2453
+2025-07-23 11:51:15 >> Corona Car 2 has finished handelling call number  2451 
+2025-07-23 11:51:162025-07-23 11:51:17 >> Ambulance 1  handle call  2454
+2025-07-23 11:51:182025-07-23 11:51:19 >> Ambulance 2  handle call  2455
+2025-07-23 11:51:202025-07-23 11:51:21 >> Ambulance 3  handle call  2456
+2025-07-23 11:51:22 >> Fire Car 1 has finished handelling call number  2452 
+2025-07-23 11:51:23 >> Fire Car 2 has finished handelling call number  2453 
+2025-07-23 11:51:232025-07-23 11:51:242025-07-23 11:51:25 >> Police 1  handle call  2458
+2025-07-23 11:51:26 >> Ambulance Car 2 has finished handelling call number  2455 
+2025-07-23 11:51:27 >> Ambulance 2  handle call  2457
+2025-07-23 11:51:282025-07-23 11:51:29 >> Police 2  handle call  2459
+2025-07-23 11:51:30 >> Ambulance Car 1 has finished handelling call number  2454 
+2025-07-23 11:51:312025-07-23 11:51:32 >> Police 3  handle call  2460
+2025-07-23 11:51:33 >> Ambulance Car 3 has finished handelling call number  2456 
+2025-07-23 11:51:34 >> police Car 1 has finished handelling call number  2458 
+2025-07-23 11:51:35 >> Ambulance Car 2 has finished handelling call number  2457 
+2025-07-23 11:51:362025-07-23 11:51:37 >> police Car 2 has finished handelling call number  2459 
+2025-07-23 11:51:38 >> Corona 1  handle call  2461
+2025-07-23 11:51:39 >> police Car 3 has finished handelling call number  2460 
+2025-07-23 11:51:402025-07-23 11:51:41 >> Police 1  handle call  2462
+2025-07-23 11:51:422025-07-23 11:51:43 >> Fire 1  handle call  2463
+2025-07-23 11:51:44 >> Corona Car 1 has finished handelling call number  2461 
+2025-07-23 11:51:452025-07-23 11:51:46 >> Police 2  handle call  2464
+2025-07-23 11:51:472025-07-23 11:51:48 >> Corona 1  handle call  2465
+2025-07-23 11:51:49 >> police Car 1 has finished handelling call number  2462 
+2025-07-23 11:51:50 >> Fire Car 1 has finished handelling call number  2463 
+2025-07-23 11:51:512025-07-23 11:51:52 >> Police 1  handle call  2466
+2025-07-23 11:51:53 >> police Car 2 has finished handelling call number  2464 
+2025-07-23 11:51:542025-07-23 11:51:54 >> Ambulance 1  handle call  2467
+2025-07-23 11:51:55 >> Corona Car 1 has finished handelling call number  2465 
+2025-07-23 11:51:56 >> police Car 1 has finished handelling call number  2466 
+2025-07-23 11:51:572025-07-23 11:51:58 >> Ambulance 2  handle call  2468
+2025-07-23 11:51:592025-07-23 11:52:00 >> Ambulance Car 1 has finished handelling call number  2467 
+2025-07-23 11:52:01 >> Corona 1  handle call  2469
+2025-07-23 11:52:022025-07-23 11:52:03 >> Corona 2  handle call  2470
+2025-07-23 11:52:04 >> Ambulance Car 2 has finished handelling call number  2468 
+2025-07-23 11:52:052025-07-23 11:52:06 >> Corona 3  handle call  2471
+2025-07-23 11:52:07 >> Corona Car 1 has finished handelling call number  2469 
+2025-07-23 11:52:082025-07-23 11:52:09 >> Corona Car 2 has finished handelling call number  2470 
+2025-07-23 11:52:10 >> Ambulance 1  handle call  2472
+2025-07-23 11:52:112025-07-23 11:52:12 >> Corona 1  handle call  2473
+2025-07-23 11:52:132025-07-23 11:52:14 >> Corona 2  handle call  2474
+2025-07-23 11:52:152025-07-23 11:52:16 >> Corona 4  handle call  2475
+2025-07-23 11:52:17 >> Corona Car 3 has finished handelling call number  2471 
+2025-07-23 11:52:18 >> Ambulance Car 1 has finished handelling call number  2472 
+2025-07-23 11:52:19 >> Corona Car 1 has finished handelling call number  2473 
+2025-07-23 11:52:202025-07-23 11:52:21 >> Police 1  handle call  2476
+2025-07-23 11:52:222025-07-23 11:52:23 >> Ambulance 1  handle call  2477
+2025-07-23 11:52:24 >> Corona Car 2 has finished handelling call number  2474 
+2025-07-23 11:52:252025-07-23 11:52:25 >> Ambulance 2  handle call  2478
+2025-07-23 11:52:26 >> police Car 1 has finished handelling call number  2476 
+2025-07-23 11:52:27 >> Corona Car 4 has finished handelling call number  2475 
+2025-07-23 11:52:282025-07-23 11:52:29 >> Police 1  handle call  2479
+2025-07-23 11:52:302025-07-23 11:52:31 >> Police 2  handle call  2480
+2025-07-23 11:52:32 >> Ambulance Car 2 has finished handelling call number  2478 
+2025-07-23 11:52:33 >> Ambulance Car 1 has finished handelling call number  2477 
+2025-07-23 11:52:34 >> police Car 1 has finished handelling call number  2479 
+2025-07-23 11:52:352025-07-23 11:52:36 >> Police 1  handle call  2481
+2025-07-23 11:52:37 >> police Car 2 has finished handelling call number  2480 
+2025-07-23 11:52:382025-07-23 11:52:39 >> Police 2  handle call  2482
+2025-07-23 11:52:402025-07-23 11:52:41 >> Ambulance 1  handle call  2483
+2025-07-23 11:52:422025-07-23 11:52:43 >> Fire 1  handle call  2484
+2025-07-23 11:52:442025-07-23 11:52:45 >> Police 3  handle call  2485
+2025-07-23 11:52:46 >> police Car 2 has finished handelling call number  2482 
+2025-07-23 11:52:472025-07-23 11:52:48 >> Police 2  handle call  2486
+2025-07-23 11:52:49 >> police Car 1 has finished handelling call number  2481 
+2025-07-23 11:52:50 >> Ambulance Car 1 has finished handelling call number  2483 
+2025-07-23 11:52:51 >> Fire Car 1 has finished handelling call number  2484 
+2025-07-23 11:52:522025-07-23 11:52:53 >> Corona 1  handle call  2487
+2025-07-23 11:52:542025-07-23 11:52:55 >> police Car 3 has finished handelling call number  2485 
+2025-07-23 11:52:56 >> Police 1  handle call  2488
+2025-07-23 11:52:572025-07-23 11:52:57 >> Ambulance 1  handle call  2489
+2025-07-23 11:52:58 >> police Car 1 has finished handelling call number  2488 
+2025-07-23 11:52:592025-07-23 11:53:00 >> Police 1  handle call  2490
+2025-07-23 11:53:01 >> police Car 2 has finished handelling call number  2486 
+2025-07-23 11:53:02 >> Corona Car 1 has finished handelling call number  2487 
+2025-07-23 11:53:032025-07-23 11:53:04 >> Ambulance 2  handle call  2491
+2025-07-23 11:53:052025-07-23 11:53:06 >> Fire 1  handle call  2492
+2025-07-23 11:53:07 >> police Car 1 has finished handelling call number  2490 
+2025-07-23 11:53:08 >> Ambulance Car 1 has finished handelling call number  2489 
+2025-07-23 11:53:092025-07-23 11:53:10 >> Ambulance 1  handle call  2493
+2025-07-23 11:53:112025-07-23 11:53:12 >> Police 1  handle call  2494
+2025-07-23 11:53:132025-07-23 11:53:14 >> Ambulance Car 2 has finished handelling call number  2491 
+2025-07-23 11:53:15 >> Fire 2  handle call  2495
+2025-07-23 11:53:16 >> Fire Car 1 has finished handelling call number  2492 
+2025-07-23 11:53:17 >> Ambulance Car 1 has finished handelling call number  2493 
+2025-07-23 11:53:182025-07-23 11:53:19 >> Police 2  handle call  2496
+2025-07-23 11:53:20 >> police Car 1 has finished handelling call number  2494 
+2025-07-23 11:53:212025-07-23 11:53:22 >> Ambulance 1  handle call  2497
+2025-07-23 11:53:23 >> Fire Car 2 has finished handelling call number  2495 
+2025-07-23 11:53:242025-07-23 11:53:25 >> Fire 1  handle call  2498
+2025-07-23 11:53:26 >> police Car 2 has finished handelling call number  2496 
+2025-07-23 11:53:27 >> Ambulance Car 1 has finished handelling call number  2497 
+2025-07-23 11:53:282025-07-23 11:53:28 >> Fire 2  handle call  2499
+2025-07-23 11:53:292025-07-23 11:53:30 >> Fire Car 1 has finished handelling call number  2498 
+2025-07-23 11:53:31 >> Fire 1  handle call  2500
+2025-07-23 11:53:32 >> Fire Car 2 has finished handelling call number  2499 
+2025-07-23 11:53:332025-07-23 11:53:34 >> Corona 1  handle call  2501
+2025-07-23 11:53:352025-07-23 11:53:36 >> Fire Car 1 has finished handelling call number  2500 
+2025-07-23 11:53:37 >> Corona 2  handle call  2502
+2025-07-23 11:53:38 >> Corona Car 1 has finished handelling call number  2501 
+2025-07-23 11:53:392025-07-23 11:53:40 >> Police 1  handle call  2503
+2025-07-23 11:53:412025-07-23 11:53:42 >> Ambulance 1  handle call  2504
+2025-07-23 11:53:43 >> police Car 1 has finished handelling call number  2503 
+2025-07-23 11:53:44 >> Corona Car 2 has finished handelling call number  2502 
+2025-07-23 11:53:452025-07-23 11:53:46 >> Fire 1  handle call  2505
+2025-07-23 11:53:472025-07-23 11:53:48 >> Fire 2  handle call  2506
+2025-07-23 11:53:49 >> Fire Car 1 has finished handelling call number  2505 
+2025-07-23 11:53:50 >> Ambulance Car 1 has finished handelling call number  2504 
+2025-07-23 11:53:512025-07-23 11:53:52 >> Fire Car 2 has finished handelling call number  2506 
+2025-07-23 11:53:53 >> Fire 1  handle call  2507
+2025-07-23 11:53:542025-07-23 11:53:55 >> Police 1  handle call  2508
+2025-07-23 11:53:562025-07-23 11:53:57 >> Police 2  handle call  2509
+2025-07-23 11:53:582025-07-23 11:53:59 >> Police 3  handle call  2510
+2025-07-23 11:53:592025-07-23 11:54:00 >> Fire Car 1 has finished handelling call number  2507 
+2025-07-23 11:54:01 >> police Car 1 has finished handelling call number  2508 
+2025-07-23 11:54:02 >> Police 1  handle call  2511
+2025-07-23 11:54:03 >> police Car 2 has finished handelling call number  2509 
+2025-07-23 11:54:042025-07-23 11:54:05 >> Corona 1  handle call  2512
+2025-07-23 11:54:06 >> police Car 3 has finished handelling call number  2510 
+2025-07-23 11:54:072025-07-23 11:54:08 >> Ambulance 1  handle call  2513
+2025-07-23 11:54:092025-07-23 11:54:10 >> Police 2  handle call  2514
+2025-07-23 11:54:11 >> police Car 1 has finished handelling call number  2511 
+2025-07-23 11:54:122025-07-23 11:54:13 >> Fire 1  handle call  2515
+2025-07-23 11:54:14 >> Corona Car 1 has finished handelling call number  2512 
+2025-07-23 11:54:15 >> Ambulance Car 1 has finished handelling call number  2513 
+2025-07-23 11:54:16 >> police Car 2 has finished handelling call number  2514 
+2025-07-23 11:54:172025-07-23 11:54:18 >> Fire 2  handle call  2516
+2025-07-23 11:54:192025-07-23 11:54:20 >> Police 1  handle call  2517
+2025-07-23 11:54:212025-07-23 11:54:22 >> Fire Car 1 has finished handelling call number  2515 
+2025-07-23 11:54:23 >> Ambulance 1  handle call  2518
+2025-07-23 11:54:24 >> Fire Car 2 has finished handelling call number  2516 
+2025-07-23 11:54:252025-07-23 11:54:26 >> Corona 1  handle call  2519
+2025-07-23 11:54:27 >> police Car 1 has finished handelling call number  2517 
+2025-07-23 11:54:282025-07-23 11:54:29 >> Ambulance 2  handle call  2520
+2025-07-23 11:54:30 >> Ambulance Car 1 has finished handelling call number  2518 
+2025-07-23 11:54:302025-07-23 11:54:31 >> Corona 2  handle call  2521
+2025-07-23 11:54:32 >> Ambulance Car 2 has finished handelling call number  2520 
+2025-07-23 11:54:332025-07-23 11:54:34 >> Corona Car 1 has finished handelling call number  2519 
+2025-07-23 11:54:35 >> Fire 1  handle call  2522
+2025-07-23 11:54:36 >> Corona Car 2 has finished handelling call number  2521 
+2025-07-23 11:54:372025-07-23 11:54:38 >> Ambulance 1  handle call  2523
+2025-07-23 11:54:392025-07-23 11:54:40 >> Police 1  handle call  2524
+2025-07-23 11:54:412025-07-23 11:54:42 >> Police 2  handle call  2525
+2025-07-23 11:54:43 >> Fire Car 1 has finished handelling call number  2522 
+2025-07-23 11:54:442025-07-23 11:54:45 >> Ambulance 2  handle call  2526
+2025-07-23 11:54:46 >> Ambulance Car 1 has finished handelling call number  2523 
+2025-07-23 11:54:472025-07-23 11:54:48 >> Police 3  handle call  2527
+2025-07-23 11:54:49 >> police Car 1 has finished handelling call number  2524 
+2025-07-23 11:54:502025-07-23 11:54:51 >> Police 1  handle call  2528
+2025-07-23 11:54:52 >> police Car 2 has finished handelling call number  2525 
+2025-07-23 11:54:532025-07-23 11:54:54 >> Corona 1  handle call  2529
+2025-07-23 11:54:55 >> Ambulance Car 2 has finished handelling call number  2526 
+2025-07-23 11:54:56 >> police Car 3 has finished handelling call number  2527 
+2025-07-23 11:54:57 >> police Car 1 has finished handelling call number  2528 
+2025-07-23 11:54:582025-07-23 11:54:59 >> Corona 2  handle call  2530
+2025-07-23 11:55:002025-07-23 11:55:01 >> Corona 3  handle call  2531
+2025-07-23 11:55:022025-07-23 11:55:02 >> Ambulance 1  handle call  2532
+2025-07-23 11:55:03 >> Corona Car 1 has finished handelling call number  2529 
+2025-07-23 11:55:04 >> Corona Car 2 has finished handelling call number  2530 
+2025-07-23 11:55:052025-07-23 11:55:06 >> Police 1  handle call  2533
+2025-07-23 11:55:07 >> Corona Car 3 has finished handelling call number  2531 
+2025-07-23 11:55:082025-07-23 11:55:09 >> Ambulance 2  handle call  2534
+2025-07-23 11:55:10 >> Ambulance Car 1 has finished handelling call number  2532 
+2025-07-23 11:55:11 >> police Car 1 has finished handelling call number  2533 
+2025-07-23 11:55:122025-07-23 11:55:13 >> Ambulance 1  handle call  2535
+2025-07-23 11:55:142025-07-23 11:55:15 >> Corona 1  handle call  2536
+2025-07-23 11:55:162025-07-23 11:55:17 >> Corona 2  handle call  2537
+2025-07-23 11:55:182025-07-23 11:55:19 >> Ambulance Car 2 has finished handelling call number  2534 
+2025-07-23 11:55:20 >> Police 1  handle call  2538
+2025-07-23 11:55:212025-07-23 11:55:22 >> Corona 3  handle call  2539
+2025-07-23 11:55:23 >> Corona Car 1 has finished handelling call number  2536 
+2025-07-23 11:55:24 >> Ambulance Car 1 has finished handelling call number  2535 
+2025-07-23 11:55:252025-07-23 11:55:26 >> Corona 1  handle call  2540
+2025-07-23 11:55:27 >> Corona Car 2 has finished handelling call number  2537 
+2025-07-23 11:55:28 >> police Car 1 has finished handelling call number  2538 
+2025-07-23 11:55:29 >> Corona Car 3 has finished handelling call number  2539 
+2025-07-23 11:55:302025-07-23 11:55:31 >> Corona 2  handle call  2541
+2025-07-23 11:55:322025-07-23 11:55:33 >> Corona 3  handle call  2542
+2025-07-23 11:55:33 >> Corona Car 2 has finished handelling call number  2541 
+2025-07-23 11:55:342025-07-23 11:55:35 >> Corona 2  handle call  2543
+2025-07-23 11:55:36 >> Corona Car 1 has finished handelling call number  2540 
+2025-07-23 11:55:372025-07-23 11:55:38 >> Police 1  handle call  2544
+2025-07-23 11:55:392025-07-23 11:55:40 >> Corona 1  handle call  2545
+2025-07-23 11:55:412025-07-23 11:55:42 >> Ambulance 1  handle call  2546
+2025-07-23 11:55:43 >> Corona Car 3 has finished handelling call number  2542 
+2025-07-23 11:55:44 >> Corona Car 2 has finished handelling call number  2543 
+2025-07-23 11:55:45 >> police Car 1 has finished handelling call number  2544 
+2025-07-23 11:55:462025-07-23 11:55:47 >> Police 1  handle call  2547
+2025-07-23 11:55:48 >> Ambulance Car 1 has finished handelling call number  2546 
+2025-07-23 11:55:49 >> Corona Car 1 has finished handelling call number  2545 
+2025-07-23 11:55:502025-07-23 11:55:51 >> Fire 1  handle call  2548
+2025-07-23 11:55:522025-07-23 11:55:53 >> Fire 2  handle call  2549
+2025-07-23 11:55:542025-07-23 11:55:55 >> Ambulance 1  handle call  2550
+2025-07-23 11:55:56 >> police Car 1 has finished handelling call number  2547 
+2025-07-23 11:55:57 >> Fire Car 1 has finished handelling call number  2548 
+2025-07-23 11:55:582025-07-23 11:55:59 >> Police 1  handle call  2551
+2025-07-23 11:56:00 >> Fire Car 2 has finished handelling call number  2549 
+2025-07-23 11:56:01 >> Ambulance Car 1 has finished handelling call number  2550 
+2025-07-23 11:56:022025-07-23 11:56:03 >> Corona 1  handle call  2552
+2025-07-23 11:56:042025-07-23 11:56:04 >> Corona 2  handle call  2553
+2025-07-23 11:56:052025-07-23 11:56:06 >> Corona 3  handle call  2554
+2025-07-23 11:56:07 >> police Car 1 has finished handelling call number  2551 
+2025-07-23 11:56:082025-07-23 11:56:09 >> Fire 1  handle call  2555
+2025-07-23 11:56:102025-07-23 11:56:11 >> Corona Car 1 has finished handelling call number  2552 
+2025-07-23 11:56:12 >> Ambulance 1  handle call  2556
+2025-07-23 11:56:13 >> Corona Car 3 has finished handelling call number  2554 
+2025-07-23 11:56:14 >> Corona Car 2 has finished handelling call number  2553 
+2025-07-23 11:56:152025-07-23 11:56:16 >> Fire 2  handle call  2557
+2025-07-23 11:56:172025-07-23 11:56:18 >> Ambulance 2  handle call  2558
+2025-07-23 11:56:192025-07-23 11:56:20 >> Fire Car 1 has finished handelling call number  2555 
+2025-07-23 11:56:21 >> Fire 1  handle call  2559
+2025-07-23 11:56:222025-07-23 11:56:23 >> Ambulance Car 1 has finished handelling call number  2556 
+2025-07-23 11:56:242025-07-23 11:56:25 >> Ambulance 1  handle call  2561
+2025-07-23 11:56:26 >> Ambulance Car 2 has finished handelling call number  2558 
+2025-07-23 11:56:27 >> Fire Car 2 has finished handelling call number  2557 
+2025-07-23 11:56:28 >> Fire 2  handle call  2560
+2025-07-23 11:56:292025-07-23 11:56:30 >> Ambulance 2  handle call  2562
+2025-07-23 11:56:31 >> Fire Car 1 has finished handelling call number  2559 
+2025-07-23 11:56:322025-07-23 11:56:33 >> Fire Car 2 has finished handelling call number  2560 
+2025-07-23 11:56:34 >> Police 1  handle call  2563
+2025-07-23 11:56:35 >> Ambulance Car 2 has finished handelling call number  2562 
+2025-07-23 11:56:352025-07-23 11:56:36 >> Ambulance 2  handle call  2564
+2025-07-23 11:56:37 >> Ambulance Car 1 has finished handelling call number  2561 
+2025-07-23 11:56:382025-07-23 11:56:39 >> Ambulance 1  handle call  2565
+2025-07-23 11:56:402025-07-23 11:56:41 >> police Car 1 has finished handelling call number  2563 
+2025-07-23 11:56:42 >> Corona 1  handle call  2566
+2025-07-23 11:56:432025-07-23 11:56:44 >> Ambulance Car 2 has finished handelling call number  2564 
+2025-07-23 11:56:45 >> Police 1  handle call  2567
+2025-07-23 11:56:462025-07-23 11:56:47 >> Ambulance Car 1 has finished handelling call number  2565 
+2025-07-23 11:56:48 >> Fire 1  handle call  2568
+2025-07-23 11:56:49 >> Corona Car 1 has finished handelling call number  2566 
+2025-07-23 11:56:50 >> police Car 1 has finished handelling call number  2567 
+2025-07-23 11:56:512025-07-23 11:56:52 >> Ambulance 1  handle call  2569
+2025-07-23 11:56:532025-07-23 11:56:54 >> Fire 2  handle call  2570
+2025-07-23 11:56:55 >> Fire Car 1 has finished handelling call number  2568 
+2025-07-23 11:56:562025-07-23 11:56:57 >> Ambulance 2  handle call  2571
+2025-07-23 11:56:58 >> Fire Car 2 has finished handelling call number  2570 
+2025-07-23 11:56:592025-07-23 11:57:00 >> Police 1  handle call  2572
+2025-07-23 11:57:01 >> Ambulance Car 1 has finished handelling call number  2569 
+2025-07-23 11:57:02 >> Ambulance Car 2 has finished handelling call number  2571 
+2025-07-23 11:57:032025-07-23 11:57:04 >> Ambulance 1  handle call  2573
+2025-07-23 11:57:05 >> police Car 1 has finished handelling call number  2572 
+2025-07-23 11:57:062025-07-23 11:57:07 >> Corona 1  handle call  2574
+2025-07-23 11:57:072025-07-23 11:57:08 >> Corona 2  handle call  2575
+2025-07-23 11:57:092025-07-23 11:57:10 >> Ambulance Car 1 has finished handelling call number  2573 
+2025-07-23 11:57:11 >> Corona 3  handle call  2576
+2025-07-23 11:57:122025-07-23 11:57:13 >> Police 1  handle call  2577
+2025-07-23 11:57:14 >> Corona Car 2 has finished handelling call number  2575 
+2025-07-23 11:57:15 >> Corona Car 3 has finished handelling call number  2576 
+2025-07-23 11:57:162025-07-23 11:57:17 >> Police 2  handle call  2578
+2025-07-23 11:57:18 >> Corona Car 1 has finished handelling call number  2574 
+2025-07-23 11:57:192025-07-23 11:57:20 >> Corona 1  handle call  2579
+2025-07-23 11:57:212025-07-23 11:57:22 >> Fire 1  handle call  2580
+2025-07-23 11:57:23 >> police Car 1 has finished handelling call number  2577 
+2025-07-23 11:57:242025-07-23 11:57:25 >> police Car 2 has finished handelling call number  2578 
+2025-07-23 11:57:26 >> Corona 2  handle call  2581
+2025-07-23 11:57:272025-07-23 11:57:28 >> Fire Car 1 has finished handelling call number  2580 
+2025-07-23 11:57:29 >> Police 1  handle call  2582
+2025-07-23 11:57:302025-07-23 11:57:31 >> Police 2  handle call  2583
+2025-07-23 11:57:32 >> Corona Car 1 has finished handelling call number  2579 
+2025-07-23 11:57:332025-07-23 11:57:34 >> Ambulance 1  handle call  2584
+2025-07-23 11:57:35 >> Corona Car 2 has finished handelling call number  2581 
+2025-07-23 11:57:362025-07-23 11:57:37 >> police Car 1 has finished handelling call number  2582 
+2025-07-23 11:57:38 >> Police 1  handle call  2585
+2025-07-23 11:57:38 >> police Car 2 has finished handelling call number  2583 
+2025-07-23 11:57:39 >> Ambulance Car 1 has finished handelling call number  2584 
+2025-07-23 11:57:402025-07-23 11:57:41 >> Corona 1  handle call  2586
+2025-07-23 11:57:422025-07-23 11:57:43 >> Fire 1  handle call  2587
+2025-07-23 11:57:442025-07-23 11:57:45 >> Police 2  handle call  2588
+2025-07-23 11:57:46 >> police Car 1 has finished handelling call number  2585 
+2025-07-23 11:57:472025-07-23 11:57:48 >> Fire 2  handle call  2589
+2025-07-23 11:57:49 >> Fire Car 1 has finished handelling call number  2587 
+2025-07-23 11:57:502025-07-23 11:57:51 >> Police 1  handle call  2590
+2025-07-23 11:57:522025-07-23 11:57:53 >> Fire 1  handle call  2591
+2025-07-23 11:57:54 >> Corona Car 1 has finished handelling call number  2586 
+2025-07-23 11:57:55 >> police Car 2 has finished handelling call number  2588 
+2025-07-23 11:57:562025-07-23 11:57:57 >> Fire Car 1 has finished handelling call number  2591 
+2025-07-23 11:57:58 >> Fire 1  handle call  2592
+2025-07-23 11:57:59 >> police Car 1 has finished handelling call number  2590 
+2025-07-23 11:58:00 >> Fire Car 2 has finished handelling call number  2589 
+2025-07-23 11:58:012025-07-23 11:58:02 >> Ambulance 1  handle call  2593
+2025-07-23 11:58:032025-07-23 11:58:04 >> Police 1  handle call  2594
+2025-07-23 11:58:052025-07-23 11:58:06 >> Police 2  handle call  2595
+2025-07-23 11:58:07 >> Fire Car 1 has finished handelling call number  2592 
+2025-07-23 11:58:082025-07-23 11:58:09 >> Ambulance 2  handle call  2596
+2025-07-23 11:58:09 >> Ambulance Car 1 has finished handelling call number  2593 
+2025-07-23 11:58:102025-07-23 11:58:11 >> Police 3  handle call  2597
+2025-07-23 11:58:12 >> police Car 1 has finished handelling call number  2594 
+2025-07-23 11:58:13 >> Ambulance Car 2 has finished handelling call number  2596 
+2025-07-23 11:58:142025-07-23 11:58:15 >> Police 1  handle call  2598
+2025-07-23 11:58:16 >> police Car 2 has finished handelling call number  2595 
+2025-07-23 11:58:17 >> police Car 3 has finished handelling call number  2597 
+2025-07-23 11:58:182025-07-23 11:58:19 >> Police 2  handle call  2599
+2025-07-23 11:58:20 >> police Car 1 has finished handelling call number  2598 
+2025-07-23 11:58:212025-07-23 11:58:22 >> Ambulance 1  handle call  2600
+2025-07-23 11:58:23 >> police Car 2 has finished handelling call number  2599 
+2025-07-23 11:58:242025-07-23 11:58:25 >> Fire 1  handle call  2601
+2025-07-23 11:58:262025-07-23 11:58:27 >> Ambulance 2  handle call  2602
+2025-07-23 11:58:28 >> Ambulance Car 1 has finished handelling call number  2600 
+2025-07-23 11:58:29 >> Fire Car 1 has finished handelling call number  2601 
+2025-07-23 11:58:302025-07-23 11:58:31 >> Fire 1  handle call  2603
+2025-07-23 11:58:322025-07-23 11:58:33 >> Corona 1  handle call  2604
+2025-07-23 11:58:34 >> Ambulance Car 2 has finished handelling call number  2602 
+2025-07-23 11:58:352025-07-23 11:58:36 >> Fire 2  handle call  2605
+2025-07-23 11:58:37 >> Fire Car 1 has finished handelling call number  2603 
+2025-07-23 11:58:38 >> Fire Car 2 has finished handelling call number  2605 
+2025-07-23 11:58:392025-07-23 11:58:40 >> Corona Car 1 has finished handelling call number  2604 
+2025-07-23 11:58:40 >> Police 1  handle call  2606
+2025-07-23 11:58:412025-07-23 11:58:42 >> Fire 1  handle call  2607
+2025-07-23 11:58:432025-07-23 11:58:44 >> police Car 1 has finished handelling call number  2606 
+2025-07-23 11:58:45 >> Fire 2  handle call  2608
+2025-07-23 11:58:462025-07-23 11:58:47 >> Police 1  handle call  2609
+2025-07-23 11:58:482025-07-23 11:58:49 >> Fire Car 1 has finished handelling call number  2607 
+2025-07-23 11:58:50 >> Fire 1  handle call  2610
+2025-07-23 11:58:51 >> police Car 1 has finished handelling call number  2609 
+2025-07-23 11:58:522025-07-23 11:58:53 >> Fire Car 2 has finished handelling call number  2608 
+2025-07-23 11:58:54 >> Corona 1  handle call  2611
+2025-07-23 11:58:55 >> Fire Car 1 has finished handelling call number  2610 
+2025-07-23 11:58:562025-07-23 11:58:57 >> Fire 1  handle call  2612
+2025-07-23 11:58:58 >> Corona Car 1 has finished handelling call number  2611 
+2025-07-23 11:58:59 >> Fire Car 1 has finished handelling call number  2612 
+2025-07-23 11:59:002025-07-23 11:59:01 >> Ambulance 1  handle call  2613
+2025-07-23 11:59:022025-07-23 11:59:03 >> Police 1  handle call  2614
+2025-07-23 11:59:042025-07-23 11:59:05 >> Police 2  handle call  2615
+2025-07-23 11:59:062025-07-23 11:59:07 >> Ambulance 2  handle call  2616
+2025-07-23 11:59:082025-07-23 11:59:09 >> police Car 1 has finished handelling call number  2614 
+2025-07-23 11:59:10 >> Fire 1  handle call  2617
+2025-07-23 11:59:11 >> Ambulance Car 1 has finished handelling call number  2613 
+2025-07-23 11:59:122025-07-23 11:59:12 >> Corona 1  handle call  2618
+2025-07-23 11:59:13 >> Ambulance Car 2 has finished handelling call number  2616 
+2025-07-23 11:59:14 >> police Car 2 has finished handelling call number  2615 
+2025-07-23 11:59:152025-07-23 11:59:16 >> Corona 2  handle call  2619
+2025-07-23 11:59:17 >> Corona Car 1 has finished handelling call number  2618 
+2025-07-23 11:59:182025-07-23 11:59:19 >> Fire Car 1 has finished handelling call number  2617 
+2025-07-23 11:59:20 >> Police 1  handle call  2620
+2025-07-23 11:59:212025-07-23 11:59:22 >> Ambulance 1  handle call  2621
+2025-07-23 11:59:232025-07-23 11:59:24 >> Corona 1  handle call  2622
+2025-07-23 11:59:25 >> Corona Car 2 has finished handelling call number  2619 
+2025-07-23 11:59:26 >> police Car 1 has finished handelling call number  2620 
+2025-07-23 11:59:272025-07-23 11:59:28 >> Ambulance 2  handle call  2623
+2025-07-23 11:59:292025-07-23 11:59:30 >> Fire 1  handle call  2624
+2025-07-23 11:59:312025-07-23 11:59:32 >> Corona Car 1 has finished handelling call number  2622 
+2025-07-23 11:59:33 >> Ambulance Car 1 has finished handelling call number  2621 
+2025-07-23 11:59:34 >> Corona 1  handle call  2625
+2025-07-23 11:59:35 >> Fire Car 1 has finished handelling call number  2624 
+2025-07-23 11:59:362025-07-23 11:59:37 >> Police 1  handle call  2626
+2025-07-23 11:59:38 >> Ambulance Car 2 has finished handelling call number  2623 
+2025-07-23 11:59:39 >> Corona Car 1 has finished handelling call number  2625 
+2025-07-23 11:59:402025-07-23 11:59:41 >> Fire 1  handle call  2627
+2025-07-23 11:59:422025-07-23 11:59:43 >> Fire 2  handle call  2628
+2025-07-23 11:59:43 >> police Car 1 has finished handelling call number  2626 
+2025-07-23 11:59:442025-07-23 11:59:45 >> Police 1  handle call  2629
+2025-07-23 11:59:462025-07-23 11:59:47 >> Corona 1  handle call  2630
+2025-07-23 11:59:48 >> Fire Car 1 has finished handelling call number  2627 
+2025-07-23 11:59:492025-07-23 11:59:50 >> Police 2  handle call  2631
+2025-07-23 11:59:51 >> Fire Car 2 has finished handelling call number  2628 
+2025-07-23 11:59:52 >> police Car 1 has finished handelling call number  2629 
+2025-07-23 11:59:532025-07-23 11:59:54 >> Corona 2  handle call  2632
+2025-07-23 11:59:55 >> Corona Car 1 has finished handelling call number  2630 
+2025-07-23 11:59:562025-07-23 11:59:57 >> Police 1  handle call  2633
+2025-07-23 11:59:58 >> police Car 2 has finished handelling call number  2631 
+2025-07-23 11:59:592025-07-23 12:00:00 >> Police 2  handle call  2634
+2025-07-23 12:00:01 >> Corona Car 2 has finished handelling call number  2632 
+2025-07-23 12:00:02 >> police Car 1 has finished handelling call number  2633 
