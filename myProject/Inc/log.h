@@ -4,7 +4,7 @@
 
 #define LOG_FILE_NAME "log_file.txt" // Define the log file name
 
-#define LOG_QUEUE_LENGTH 100
+#define LOG_QUEUE_LENGTH 200
 #define LOG_QUEUE_SIZE       sizeof(log_msg_call_t)  
 
 
@@ -13,7 +13,7 @@
 // used to handle log details
 typedef struct  {
 
-    char  log_time_stamp[25];
+    char  log_time_stamp[100];
     char  log_call_desc[100];
 
 } log_msg_call_t;
