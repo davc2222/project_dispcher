@@ -98,6 +98,7 @@ void Task_police(void *pvParameters)
                     set_reset_police_car_busy(&busy_police_cars, available_car, CAR_BUSY);
                     BLUE_TXT_CLR;
                     printf("%s  handle call  %d\n", car_name, msg_police.call_id);
+                     memset(& log_msg, 0, sizeof( log_msg));
                     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> %s  handle call  %d\n", car_name, msg_police.call_id);
                     get_time(log_msg.log_time_stamp);
                     if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
@@ -252,6 +253,7 @@ void vPoliceTimerCallBackFunction(TimerHandle_t xTimer)
  
     BLUE_TXT_CLR;
     printf("Police Car %d has finished handelling call number  %d \n", carNum, call_id);
+     memset(& log_msg, 0, sizeof( log_msg));
     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> police Car %d has finished handelling call number  %d \n", carNum, call_id);
     get_time(log_msg.log_time_stamp);
     

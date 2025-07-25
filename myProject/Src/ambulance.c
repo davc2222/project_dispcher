@@ -114,7 +114,7 @@ void Task_ambulance(void *pvParameters)
                        // Release the mutex
                     xSemaphoreGive(xMutex_log);
                 }
-                   
+                    memset(& log_msg, 0, sizeof( log_msg));
                     ambulanceTimerData[available_car - 1].call_id = msg_ambulance.call_id;
                     int handl_time = getRandomNumber(MIN_AMBULANCE_CALL_HNDL_TIME, MAX_AMBULANCE_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
                     xTimerChangePeriod(xAmbulanceTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0);               // set new time for call
@@ -260,6 +260,7 @@ void vAmbulanceTimerCallBackFunction(TimerHandle_t xTimer)
                  // Release the mutex
                     xSemaphoreGive(xMutex_log);
     }  
+    memset(& log_msg, 0, sizeof( log_msg));
     set_reset_ambulance_car_busy(&busy_ambulance_cars, carNum, CAR_AVA);
     // Stop timer at the end (applies to all cases)
     xTimerStop(xTimer, 0);

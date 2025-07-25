@@ -97,6 +97,7 @@ void Task_corona(void *pvParameters)
                     set_reset_corona_car_busy(&busy_corona_cars, available_car, CAR_BUSY);
                     PRPL_TXT_CLR;
                     printf("%s  handle call- %d\n", car_name, msg_corona.call_id);
+                    memset(& log_msg, 0, sizeof( log_msg));
                     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> %s  handle call  %d\n", car_name, msg_corona.call_id);
                     get_time(log_msg.log_time_stamp);
                         if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
@@ -108,7 +109,7 @@ void Task_corona(void *pvParameters)
                         // Release the mutex
                     xSemaphoreGive(xMutex_log);
                 }
-              
+                    
                     coronaTimerData[available_car - 1].call_id = msg_corona.call_id;
                     int handl_time = getRandomNumber(MIN_CORONA_CALL_HNDL_TIME, MAX_CORONA_CALL_HNDL_TIME) * 1000; // time between 5 - 10sec
                     xTimerChangePeriod(xCoronaTimers[available_car - 1], pdMS_TO_TICKS(handl_time), 0); // set new time for call
@@ -246,6 +247,7 @@ void vCoronaTimerCallBackFunction(TimerHandle_t xTimer)
 
     PRPL_TXT_CLR;
     printf("Corona Car %d has finished handelling call number  %d \n", carNum, call_id);
+         memset(& log_msg, 0, sizeof( log_msg));
     snprintf(log_msg.log_call_desc, sizeof(log_msg.log_call_desc), " >> Corona Car %d has finished handelling call number  %d \n", carNum, call_id);
     get_time(log_msg.log_time_stamp);
     if (xSemaphoreTake(xMutex_log, TASKS_SMFR_DELAY) == pdTRUE)
@@ -257,6 +259,7 @@ void vCoronaTimerCallBackFunction(TimerHandle_t xTimer)
                  // Release the mutex
                     xSemaphoreGive(xMutex_log);
     }  
+
     set_reset_corona_car_busy(&busy_corona_cars, carNum, CAR_AVA);
     RST_TXT_CLR;
     xTimerStop(xTimer, 0);

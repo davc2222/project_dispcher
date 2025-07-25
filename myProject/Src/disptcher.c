@@ -237,6 +237,7 @@ void Task_dispcher(void *pvParameters)
                 selected_queue = NULL;
                 // print dispacher messages
                 RED_TXT_CLR;
+                memset(& log_msg, 0, sizeof( log_msg));
                 printf("%s", call_msg.call_desc);
                 get_time(log_msg.log_time_stamp);
   
